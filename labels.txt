@@ -1,0 +1,12 @@
+easy puzzles: z
+med m
+hard h
+evil e
+top95 t
+easynew ce
+unrated u
+c?
+
+format 
+	<key>s1</key>
+	<string>020178030040302090100000006008603500300000004006709200900000002080901060010436050</string>
