@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750129A31BF9D9F6006D8586 /* Breakpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750129A21BF9D9F6006D8586 /* Breakpoints.swift */; };
 		7507A9141BF535F8009D3EEF /* Plotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507A9131BF535F8009D3EEF /* Plotter.swift */; };
 		751205521BF4DA1E00E6BB45 /* PlotUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */; };
 		75179A651BF7EEA800F461D6 /* Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A641BF7EEA800F461D6 /* Undo.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		750129A21BF9D9F6006D8586 /* Breakpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breakpoints.swift; sourceTree = "<group>"; };
 		7507A9131BF535F8009D3EEF /* Plotter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plotter.swift; sourceTree = "<group>"; };
 		751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotUtilities.swift; sourceTree = "<group>"; };
 		75179A641BF7EEA800F461D6 /* Undo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Undo.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				75C465121BF3945200436C0F /* AppDelegate.swift */,
+				750129A21BF9D9F6006D8586 /* Breakpoints.swift */,
 				75C587E61BF5750B00AEDDAC /* Colors.swift */,
 				7573691A1BF53B640031DDCD /* Data.swift */,
 				755F6AF31BF64225006CD298 /* Logic.swift */,
@@ -301,6 +304,7 @@
 				75C587E71BF5750B00AEDDAC /* Colors.swift in Sources */,
 				75C465401BF3950100436C0F /* MyView.swift in Sources */,
 				75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */,
+				750129A31BF9D9F6006D8586 /* Breakpoints.swift in Sources */,
 				75DFCE9C1BF6683400210640 /* Files.swift in Sources */,
 				75C4653D1BF394AA00436C0F /* MainWindowController.swift in Sources */,
 				7573691B1BF53B640031DDCD /* Data.swift in Sources */,

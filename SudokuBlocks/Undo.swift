@@ -21,6 +21,7 @@ which *may* be empty
 we only use it if MoveType is a substitution
 */
 
+typealias Move = (Int, MoveType, [String], Set<Int>)
 var moveL = [(Int, MoveType, [String], Set<Int>)] ()
 
 func undoLastMove() {
@@ -54,5 +55,4 @@ func undoLastMove() {
         let key = string_arr.first!
         dataD[key] = int_set
     }
-    refreshScreen()
 }

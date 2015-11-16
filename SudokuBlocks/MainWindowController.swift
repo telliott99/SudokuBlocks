@@ -70,5 +70,14 @@ class MainWindowController: NSWindowController {
     
     @IBAction func undo(sender: AnyObject) {
         undoLastMove()
+        refreshScreen()
+    }
+    
+    @IBAction func setBreakpoint(sender: AnyObject) {
+        addNewBreakpoint()
+    }
+
+    @IBAction func goToBreakpoint(sender: AnyObject) {
+        restoreLastBreakpoint()
     }
 }
