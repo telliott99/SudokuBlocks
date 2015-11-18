@@ -1,6 +1,4 @@
-import Foundation
-
-import Foundation
+import Cocoa
 
 /*
 we represent a breakpoint
@@ -17,8 +15,8 @@ probably not
 var breakPointList = [Breakpoint]()
 
 struct Breakpoint {
-    var a = [Move]()
-    var D = DataSet()
+    var a: [Move]
+    var D: DataSet
     init(arr: [Move], dict: DataSet) {
         a = arr
         D = dict
@@ -41,6 +39,43 @@ func restoreLastBreakpoint() {
     refreshScreen()
 }
 
+/*
 
+Not implemented yet
 
+/*
+data structure to hold the tree formed by
+traversing decision points (breakpoints)
+
+*/
+
+struct Node {
+    let key: String
+    let color: NSColor
+    let left: String
+    let right: String
+    let active: Bool
+    init (k: String, c: NSColor, l: String,
+        r: String, active: Bool = true) {
+        key = k
+        color = c
+        left = l
+        right = r
+    }
+}
+
+let node = Node(k: "root", c: black, l: "", r: "")
+var decisionTree: [String:Node] = ["root":node]
+
+// construct decisionTree upon adding a breakpoint
+
+func addBranchToDecisionTree(key:String) {
+    // find the color from the value
+    let value = dataD[key]!.first!
+    let i = value - 1
+    let c = cL[i]
+    let  =
+}
+
+*/
 

@@ -76,7 +76,7 @@ func applyConstraintsForFilledSquare(key: String) {
     
     for key in a {
         var tmp = dataD[key]!
-        if (tmp.count > 1 && tmp.contains(n)) {
+        if tmp.count > 1 && tmp.contains(n) {
             tmp.remove(n)
             dataD[key] = tmp
             a2.append(key)
@@ -84,7 +84,7 @@ func applyConstraintsForFilledSquare(key: String) {
     }
     
     // now construct the move:
-    if (a2.count != 0) {
+    if a2.count != 0 {
         moveL.append( (n, move, a2, nullSet ))
     }
     
@@ -94,7 +94,7 @@ func applyConstraintsForAllFilledSquares() {
     // decided to just go through the squares once..
     var a = [String]()
     for key in dataD.keys {
-        if (dataD[key]!.count == 1) {
+        if dataD[key]!.count == 1 {
             a.append(key)
         }
     }

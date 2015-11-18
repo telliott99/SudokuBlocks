@@ -9,7 +9,11 @@ class MainWindowController: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        labelTextField.stringValue = "no puzzle yet"
+        //labelTextField.stringValue = "no puzzle yet"
+        getRandomPuzzle(self)
+        // applyConstraintsForAllFilledSquares()
+        showCurrentState(self)
+        // showHint() 
     }
     
     override var windowNibName: String {
@@ -21,7 +25,7 @@ class MainWindowController: NSWindowController {
         let s = textField.stringValue
         // print("textField.stringValue: \(s)")
         let result = loadPuzzleDataFromString(s)
-        if (result) {
+        if result {
             labelTextField.stringValue = "custom puzzle"
             showCurrentState(self)
         }
@@ -80,4 +84,17 @@ class MainWindowController: NSWindowController {
     @IBAction func goToBreakpoint(sender: AnyObject) {
         restoreLastBreakpoint()
     }
+    
+    /*
+    
+    override func acceptsFirstResponder() -> Bool {
+        return true
+    }
+    
+    @IBAction override func keyDown(theEvent: NSEvent) {
+        Swift.print(theEvent)
+        // check for CMD-z
+    }
+
+    */
 }

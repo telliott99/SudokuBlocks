@@ -31,15 +31,19 @@ let mercury = NSColor(netHex: 0xE6E6E6)
 let lime = NSColor(netHex: 0x80FF00)
 let eggplant = NSColor(netHex: 0x400080)
 
+let red = NSColor.redColor()
+let black = NSColor.blackColor()
+let blue = NSColor.blueColor()
+
 func constructColorList() -> [NSColor] {
     let L = [
-        NSColor.redColor(),
-        NSColor.blueColor(),
+        red,
+        blue,
         banana,
         NSColor.cyanColor(),
         tangerine,
         NSColor.purpleColor(),
-        NSColor.blackColor(),
+        black,
         NSColor.magentaColor(),
         lime ]
     return L

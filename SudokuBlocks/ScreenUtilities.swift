@@ -3,9 +3,12 @@ import Cocoa
 // makes refresh available to Swift files
 func refreshScreen() {
     let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-    let windowController = appDelegate.mainWindowController!
-    let w = windowController.window!
-    w.display()
+    
+    if let windowController = appDelegate.mainWindowController {
+        if let w = windowController.window {
+            w.display()
+        }
+    }
 }
 
 func runAlert(s: String) -> Bool {
@@ -29,3 +32,4 @@ func unSelectTextField(tf: NSTextField) {
         textEditor.selectedRange = range
     }
 }
+

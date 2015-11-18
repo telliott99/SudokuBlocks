@@ -45,11 +45,11 @@ func validatedPuzzleString(s: String) -> String? {
         a.append(c)
     }
     
-    if (!(a.count == 81)) {
+    if !(a.count == 81) {
         return nil
     }
     
-    if (!(Set(a).isSubsetOf(validChars))) {
+    if !Set(a).isSubsetOf(validChars) {
         return nil
     }
     return String(a)
@@ -58,7 +58,7 @@ func validatedPuzzleString(s: String) -> String? {
 // returns true for success
 func loadPuzzleDataFromString(s: String) -> Bool {
     let ns = validatedPuzzleString(s)
-    if (ns == nil) {
+    if ns == nil {
         let _ = runAlert("something wrong with that one")
         Swift.print(s)
         Swift.print(ns)
@@ -72,7 +72,7 @@ func loadPuzzleDataFromString(s: String) -> Bool {
 func getCurrentStateAsString() -> String {
     var arr = [String]()
     for (i,key) in dataD.keys.sort().enumerate() {
-        if (i != 0) {
+        if i != 0 {
             if (i % 9 == 0) {
                 arr.append("\n")
             }

@@ -113,20 +113,20 @@ func constructTinyRects() -> [NSRect] {
 func indexOfTinyRectForPoint(x: CGFloat, y :CGFloat) -> Int {
     // 60 x 60 in Double, 3 x 3 in tinyRects
     var index = 0
-    if (x <= 20) {
+    if x <= 20 {
         index += 0
     }
-    else if (x <= 40) {
+    else if x <= 40 {
         index += 1
     }
     else {
         index += 2
     }
     
-    if (y <= 20) {
+    if y <= 20 {
         index += 0
     }
-    else if (y <= 40) {
+    else if y <= 40 {
         index += 3
     }
     else {

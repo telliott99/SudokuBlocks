@@ -4,8 +4,8 @@ func loadFileHandler() -> String? {
     let op = NSOpenPanel()
     
     op.prompt = "Open File:"
-    op.title = "A title"
-    op.message = "A message"
+    // op.title = "A title"
+    // op.message = "A message"
     // op.canChooseFiles = true  // default
     // op.worksWhenModal = true  // default
     
@@ -21,7 +21,7 @@ func loadFileHandler() -> String? {
     // op.orderOut()
     
     // op.URL contains the user's choice
-    if (op.URL == nil) {
+    if op.URL == nil {
         return nil
     }
     var s: String
@@ -48,7 +48,7 @@ func savePuzzleDataToFile(s: String) {
     sp.runModal()
     // op.orderOut()
     // op.URL contains the user's choice
-    if (sp.URL == nil) {
+    if sp.URL == nil {
         return
     }
     let path = sp.URL!
