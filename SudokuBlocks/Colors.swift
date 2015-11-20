@@ -22,32 +22,43 @@ extension NSColor {
     }
 }
 
-let maroon = NSColor(netHex: 0x800040)
-let cantaloupe = NSColor(netHex: 0xFFCC66)
 let banana = NSColor(netHex: 0xFFFF66)
-let tangerine = NSColor(netHex: 0xFF8000)
-let silver = NSColor(netHex: 0xCCCCCC)
-let mercury = NSColor(netHex: 0xE6E6E6)
-let lime = NSColor(netHex: 0x80FF00)
-let eggplant = NSColor(netHex: 0x400080)
-
-let red = NSColor.redColor()
 let black = NSColor.blackColor()
 let blue = NSColor.blueColor()
+let cantaloupe = NSColor(netHex: 0xFFCC66)
+let clover = NSColor(netHex: 0x008000)
+let cyan = NSColor.cyanColor()
+let eggplant = NSColor(netHex: 0x400080)
+let lime = NSColor(netHex: 0x80FF00)
+let magenta = NSColor.magentaColor()
+let maroon = NSColor(netHex: 0x800040)
+let mercury = NSColor(netHex: 0xE6E6E6)
+let purple = NSColor.purpleColor()
+let red = NSColor.redColor()
+let salmon = NSColor(netHex: 0xFF6666)
+let silver = NSColor(netHex: 0xCCCCCC)
+let tangerine = NSColor(netHex: 0xFF8000)
+let turquoise = NSColor(netHex: 0x00FFFF)
+
 
 func constructColorList() -> [NSColor] {
     let L = [
         red,
         blue,
         banana,
-        NSColor.cyanColor(),
+        turquoise,
         tangerine,
-        NSColor.purpleColor(),
+        purple,
         black,
-        NSColor.magentaColor(),
+        magenta,
         lime ]
     return L
 }
+
+/*
+lime,
+clover,
+*/
 
 /*
 http://www.randomactsofsentience.com/2013/06/os-x-crayon-color-hex-table.html

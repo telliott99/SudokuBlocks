@@ -91,3 +91,12 @@ func isLegalMove(key: String, st: Set<Int>) -> Bool {
     return true
 }
 
+func getAllFilledSquares()-> [String] {
+    var a = [String]()
+    for key in dataD.keys {
+        if dataD[key]!.count == 1 {
+            a.append(key)
+        }
+    }
+    return a
+}

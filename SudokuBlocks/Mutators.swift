@@ -55,12 +55,15 @@ func respondToClick(key: String, point: NSPoint,
 }
 
 // this function modifies the dataD
-func applyConstraintsForFilledSquare(key: String) {
+// returns the keys for squares that are changed
+
+func applyConstraintsForOneFilledSquare(key: String) -> [String] {
     
     let st = dataD[key]!
+    var newFilledSquares = [String]()
     
     assert(!(st.count > 1),
-        "Cannot apply constraints for: \(key) with multiple values!")
+        "Cannot apply constraints for: \(key) \(st) with multiple values!")
     
     assert ((st.count > 0),
         "Received empty set for key: \(key)")
@@ -80,6 +83,9 @@ func applyConstraintsForFilledSquare(key: String) {
             tmp.remove(n)
             dataD[key] = tmp
             a2.append(key)
+            if tmp.count == 1 {
+                newFilledSquares.append(key)
+            }
         }
     }
     
@@ -87,20 +93,31 @@ func applyConstraintsForFilledSquare(key: String) {
     if a2.count != 0 {
         moveL.append( (n, move, a2, nullSet ))
     }
-    
+    return newFilledSquares
 }
 
-func applyConstraintsForAllFilledSquares() {
-    // decided to just go through the squares once..
-    var a = [String]()
-    for key in dataD.keys {
-        if dataD[key]!.count == 1 {
-            a.append(key)
-        }
-    }
+func applyConstraintsForFilledSquaresOnce() {
+    // go through the squares only once..
+    let a = getAllFilledSquares()
     for key in a {
-        applyConstraintsForFilledSquare(key)
+        applyConstraintsForOneFilledSquare(key)
     }
     refreshScreen()
 }
 
+func applyConstraintsForFilledSquaresExhaustively() {
+    var a = getAllFilledSquares()
+    while a.count > 0 {
+        let key = a.removeFirst()
+        let newFilledSquares = applyConstraintsForOneFilledSquare(key)
+        a += newFilledSquares
+    }
+    refreshScreen()
+}
+
+func resetPuzzle() {
+    Swift.print("reset")
+    dataD = initialState
+    applyConstraintsForFilledSquaresOnce()
+    refreshScreen()
+}

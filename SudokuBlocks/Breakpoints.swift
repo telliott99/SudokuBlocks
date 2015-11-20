@@ -17,7 +17,7 @@ var breakPointList = [Breakpoint]()
 struct Breakpoint {
     var a: [Move]
     var D: DataSet
-    init(arr: [Move], dict: DataSet) {
+    init(arr: [Move] = [], dict: DataSet = DataSet() ) {
         a = arr
         D = dict
     }

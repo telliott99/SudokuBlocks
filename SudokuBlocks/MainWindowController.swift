@@ -39,9 +39,14 @@ class MainWindowController: NSWindowController {
     }
 
     @IBAction func requestClean(sender: AnyObject) {
-        applyConstraintsForAllFilledSquares()
+        applyConstraintsForFilledSquaresOnce()
     }
     
+    
+    @IBAction func requestExhaustiveClean(sender: AnyObject) {
+        applyConstraintsForFilledSquaresExhaustively()
+    }
+
     @IBAction func showCurrentState(sender: AnyObject) {
         let s = getCurrentStateAsString()
         textField.stringValue = s
@@ -83,6 +88,13 @@ class MainWindowController: NSWindowController {
 
     @IBAction func goToBreakpoint(sender: AnyObject) {
         restoreLastBreakpoint()
+    }
+    
+    @IBAction func reset(sender: AnyObject) {
+        if moveL.count == 0 {
+            return
+        }
+        resetPuzzle()
     }
     
     /*

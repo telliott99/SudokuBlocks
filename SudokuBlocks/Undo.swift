@@ -22,6 +22,7 @@ we only use it if MoveType is a substitution
 */
 
 typealias Move = (Int, MoveType, [String], Set<Int>)
+
 var moveL = [(Int, MoveType, [String], Set<Int>)] ()
 
 func undoLastMove() {

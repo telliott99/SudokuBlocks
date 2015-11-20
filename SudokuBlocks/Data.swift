@@ -20,6 +20,7 @@ Array(s).sortInPlace()
 
 typealias DataSet = [String:Set<Int>]
 var dataD = DataSet()
+var initialState = DataSet()
 
 let validChars = Set("0123456789.".characters)
 
@@ -67,5 +68,7 @@ func constructNewPuzzle(s: String) -> DataSet? {
         // data storage for this cell of the puzzle
         dataD[key] = Set([n!])
     }
+    
+    initialState = dataD
     return dataD
 }
