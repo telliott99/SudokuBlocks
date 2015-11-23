@@ -1,7 +1,10 @@
 import Cocoa
 
+let outlineColor = mercury
+let cL = constructColorList()
+
 // Not sure what happened to Crayons
-// Found this on the web, see below
+// Found this on the web, see defs below
 
 extension NSColor {
     convenience init(red: Int, green: Int, blue: Int) {

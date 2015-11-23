@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Put the window of the window controller on screen
         mainWindowController.showWindow( self)
         
-        // Hillegass say:  do the setup, then this assignment:
+        // Hillegass book says:  do setup first, then assignment:
         
         // Set the property to point to the window controller
         self.mainWindowController = mainWindowController

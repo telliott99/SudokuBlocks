@@ -57,8 +57,12 @@ func savePuzzleDataToFile(s: String) {
     catch {  }
 }
 
-// this part probably need a TableView with keys and then pick
-// choices are easy, medium, hard, evil
+/*
+this part could definitely be fancier, like
+a TableView with keys then pick
+current choices are easy, medium, hard, evil
+not sure where the ratings came from now, some are iffy
+*/
 
 func getDatabasePuzzle(level: Difficulty) -> (String, String)? {
     let path = NSBundle.mainBundle().pathForResource("db", ofType: "plist")

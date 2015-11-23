@@ -2,18 +2,16 @@ import Cocoa
 
 class MainWindowController: NSWindowController {
     
-    // I know these guys exist!
+    // We know these guys exist!
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var labelTextField: NSTextField!
     @IBOutlet weak var popUp: NSPopUpButton!
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        //labelTextField.stringValue = "no puzzle yet"
         getRandomPuzzle(self)
-        // applyConstraintsForAllFilledSquares()
         showCurrentState(self)
-        // showHint() 
+        
     }
     
     override var windowNibName: String {
@@ -21,6 +19,7 @@ class MainWindowController: NSWindowController {
     }
 
     // should show an alert on failure
+    
     @IBAction func loadText(sender: AnyObject) {
         let s = textField.stringValue
         // print("textField.stringValue: \(s)")
@@ -69,11 +68,13 @@ class MainWindowController: NSWindowController {
         
         let (key, value) = result!
         loadPuzzleDataFromString(value)
+        applyConstraintsForFilledSquaresOnce()
         
         let s2 = getCurrentStateAsString()  // has newlines
         textField.stringValue = s2
         labelTextField.stringValue = key
         unSelectTextField(textField)
+        
         self.window!.display()
     }
     
@@ -82,11 +83,11 @@ class MainWindowController: NSWindowController {
         refreshScreen()
     }
     
-    @IBAction func setBreakpoint(sender: AnyObject) {
+    @IBAction func setNewBreakpoint(sender: AnyObject) {
         addNewBreakpoint()
     }
 
-    @IBAction func goToBreakpoint(sender: AnyObject) {
+    @IBAction func returnToLastBreakpoint(sender: AnyObject) {
         restoreLastBreakpoint()
     }
     
@@ -97,16 +98,14 @@ class MainWindowController: NSWindowController {
         resetPuzzle()
     }
     
-    /*
-    
-    override func acceptsFirstResponder() -> Bool {
-        return true
+    @IBAction func showHints(sender: AnyObject) {
+        if let hL = getHints() {
+            let sa = hL.map( { String($0) } ).joinWithSeparator("\n")
+            runAlert(sa)
+        }
+        else {
+            runAlert("no hints right now")
+        }
     }
     
-    @IBAction override func keyDown(theEvent: NSEvent) {
-        Swift.print(theEvent)
-        // check for CMD-z
-    }
-
-    */
 }

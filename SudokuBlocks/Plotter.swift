@@ -5,7 +5,6 @@ let kL = orderedKeyArray()  // ["A1" .. "I9"]
 let rectD = constructRectDict()
 let tiny_rectL = constructTinyRects()
 
-let cL = constructColorList()
 let divL = getBlueDividerRects()
 
 func drawDividers() {
@@ -35,7 +34,7 @@ func plotRects(data: Set<Int>, rect: NSRect, key: String) {
         NSBezierPath.fillRect(rect)
         
         NSBezierPath.setDefaultLineWidth(2)
-        mercury.set()
+        outlineColor.set()
         NSBezierPath.strokeRect(rect)
     }
     else {
@@ -57,7 +56,7 @@ func plotTinyRects(data: Set<Int>, rect: NSRect, key: String) {
         NSBezierPath.fillRect(r)
     }
     NSBezierPath.setDefaultLineWidth(2)
-    mercury.set()
+    outlineColor.set()
     NSBezierPath.strokeRect(rect)
 }
 

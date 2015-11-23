@@ -1,8 +1,19 @@
 // deal with puzzle data in the form of Strings
 
-import Foundation
 
 import Cocoa
+
+/*
+< todo?
+<
+< enum RowIndex
+< enum ColIndex
+< struct Key {
+<     let row = RowIndex()
+<     let col = ColIndex()
+< }
+<
+< */
 
 enum Difficulty {
     case easy
@@ -86,7 +97,7 @@ func getCurrentStateAsString() -> String {
         }
     }
     let s = arr.joinWithSeparator("")
-    Swift.print(s)
+    // Swift.print(s)
     return s
 }
 

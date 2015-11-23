@@ -2,11 +2,12 @@ import Cocoa
 
 /*
 we represent a breakpoint
-with a data structure that holds all the info
+with a data structure
+that holds all the info
 needed to revert to that point
 
-we need the move list
-we need the current dataD
+save the move list
+and the current dataD
 
 do we need the original puzzle?
 probably not
@@ -26,10 +27,11 @@ struct Breakpoint {
 func addNewBreakpoint() {
     let b = Breakpoint(arr: moveL, dict: dataD)
     breakPointList.append(b)
-    // Swift.print("\(b)")
+    Swift.print("addNewBreakpoint: #\(breakPointList.count)")
 }
 
 func restoreLastBreakpoint() {
+    Swift.print("restoreBreakpoint")
     if breakPointList.count == 0 {
         return
     }
