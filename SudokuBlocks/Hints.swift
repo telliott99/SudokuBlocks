@@ -16,6 +16,8 @@ count how many times
 a particular IntSet is found in an array
 */
 
+var hintList = [Hint]()
+
 extension Array {
     func elementCount (input: IntSet) -> Int {
         var count = 0
@@ -30,6 +32,14 @@ extension Array {
 
 
 func == (lhs: Hint, rhs: Hint) -> Bool {
+    if lhs.k != rhs.k { return false }
+    if lhs.iSet != rhs.iSet { return false }
+    return true
+}
+
+func == (lhs: KeyPair, rhs: KeyPair) -> Bool {
+    if lhs.k1 != rhs.k1 { return false }
+    if lhs.k2 != rhs.k2 { return false }
     return true
 }
 
@@ -45,7 +55,8 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
     var description: String {
         get {
             let sortedISet = Array(iSet).sort()
-            return "\(k) = \(sortedISet) based on \(kp)"
+            // return "\(kp):\n\(k) = \(sortedISet)"
+            return "\(k) -> \(sortedISet)"
         }
     }
     var hashValue: Int {
@@ -72,40 +83,9 @@ struct KeyPair: CustomStringConvertible {
 // typealias IntSet = Set<Int>
 // typealias DataSet = [String:IntSet]
 
-var a = [Set<Int>]()
-
-/*
-find repeated twos in neighbors
-e.g. {2,5}, .. , {2,5}
-return an array of the *keys* of those cells
-array.count will be 0, 2, 4
-*/
+var a = [IntSet]()
 
 
-// find duplicates (repeated twos)
-
-/*
-
-func findRepeatedTwos(neighbors: [String]) -> [KeyPair]? {
-    
-    var twoElements = [KeyPair]()
-    
-    // alreadySeen will hold the value
-    // for each key pair (which is the same)
-    var alreadySeen = [IntSet]()
-    
-    for key in neighbors.sort() {
-        var iSet = dataD[key]!
-        if alreadySeen.contains(iSet) {
-            continue
-        }
-        if iSet.count == 2 {
-            // need to find the second key
-            twoElements.append(key)
-            
-        }
-    }
-*/
 
 func findRepeatedTwos(neighbors: [String]) -> [KeyPair]? {
     let arr = getIntSetsForKeyArray(neighbors)
@@ -199,15 +179,35 @@ func getTypeOneHints() -> Set<Hint>? {
     return Set(hints)
 }
 
+/*
+Type Two situation, we have one value that is 
+the only one for a box row or col
+*/
 
-func getHints() -> [Hint]? {
+/*
+Type Three situation
+we have 3 instances of 3 of a kind
+*/
+
+/*
+Type Four Situation
+we have a cycle like [1,2] [2,3] [3,1]
+*/
+
+
+func calculateHintsForThisPosition() {
     if let hints = getTypeOneHints() {
-        for h in hints {
+        hintList = Array(hints)
+        /*
+        ha.sortInPlace()
+        for h in hintList {
             Swift.print("\(h)")
         }
-        return Array(hints)
+        */
     }
-    return nil
+    if hintList.count == 0 {
+        runAlert("no hints right now")
+    }
 }
 
 

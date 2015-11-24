@@ -11,7 +11,6 @@ class MainWindowController: NSWindowController {
         super.windowDidLoad()
         getRandomPuzzle(self)
         showCurrentState(self)
-        
     }
     
     override var windowNibName: String {
@@ -99,13 +98,13 @@ class MainWindowController: NSWindowController {
     }
     
     @IBAction func showHints(sender: AnyObject) {
-        if let hL = getHints() {
-            let sa = hL.map( { String($0) } ).joinWithSeparator("\n")
-            runAlert(sa)
-        }
-        else {
-            runAlert("no hints right now")
-        }
+        setHintStatus(true)
+        calculateHintsForThisPosition()
+        self.window!.display()
     }
     
+    @IBAction func hideHints(sender: AnyObject) {
+        setHintStatus(false)
+        self.window!.display()
+    }
 }

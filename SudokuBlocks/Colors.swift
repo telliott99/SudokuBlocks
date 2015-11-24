@@ -40,7 +40,7 @@ let purple = NSColor.purpleColor()
 let red = NSColor.redColor()
 let salmon = NSColor(netHex: 0xFF6666)
 let silver = NSColor(netHex: 0xCCCCCC)
-let tangerine = NSColor(netHex: 0xFF8000)
+let lightSalmon = NSColor(netHex: 0xFFB080)
 let turquoise = NSColor(netHex: 0x00FFFF)
 
 
@@ -50,7 +50,7 @@ func constructColorList() -> [NSColor] {
         blue,
         banana,
         turquoise,
-        tangerine,
+        lightSalmon,
         purple,
         black,
         magenta,

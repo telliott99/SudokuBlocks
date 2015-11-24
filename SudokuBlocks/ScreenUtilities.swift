@@ -13,6 +13,7 @@ func refreshScreen() {
 
 func runAlert(s: String) -> Bool {
     let a: NSAlert = NSAlert()
+    Swift.print(a.window.frame.origin)
     a.messageText = s
     //a.informativeText = text
     a.alertStyle = NSAlertStyle.WarningAlertStyle
