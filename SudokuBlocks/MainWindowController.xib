@@ -7,6 +7,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="SudokuBlocks" customModuleProvider="target">
             <connections>
+                <outlet property="checkbox" destination="AUP-8Q-loD" id="bXn-3G-bZk"/>
+                <outlet property="label1" destination="O1D-xY-7rx" id="GXn-gZ-ihf"/>
+                <outlet property="label2" destination="X2G-6B-lN9" id="dq0-W5-C3c"/>
                 <outlet property="labelTextField" destination="jd7-pi-DG3" id="gd3-Oc-0vh"/>
                 <outlet property="popUp" destination="oRa-5X-04e" id="zhK-Mc-1Ng"/>
                 <outlet property="textField" destination="uMC-hq-WIT" id="Vfe-yP-cLb"/>
@@ -120,7 +123,7 @@
                         </popUpButtonCell>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adp-Nk-KQt">
-                        <rect key="frame" x="24" y="62" width="281" height="17"/>
+                        <rect key="frame" x="24" y="61" width="281" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Command-click to delete all except that value" id="FmC-ag-lI7">
                             <font key="font" metaFont="system"/>
@@ -257,7 +260,7 @@
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEh-Ev-0gc">
-                        <rect key="frame" x="24" y="45" width="209" height="17"/>
+                        <rect key="frame" x="24" y="43" width="209" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Command-z to go back one move" id="AyK-Ri-xLj">
                             <font key="font" metaFont="system"/>
@@ -315,17 +318,6 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VJZ-jc-L8t">
-                        <rect key="frame" x="726" y="69" width="73" height="32"/>
-                        <animations/>
-                        <buttonCell key="cell" type="push" title="HIde" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lOT-89-T8t">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="hideHints:" target="-2" id="Aji-ch-ER1"/>
-                        </connections>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-d8-FPX">
                         <rect key="frame" x="24" y="26" width="289" height="17"/>
                         <animations/>
@@ -342,10 +334,35 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
                     </box>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghh-GV-uqt" customClass="CountView" customModule="SudokuBlocks" customModuleProvider="target">
-                        <rect key="frame" x="807" y="92" width="38" height="36"/>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VJZ-jc-L8t">
+                        <rect key="frame" x="726" y="69" width="73" height="32"/>
                         <animations/>
-                    </customView>
+                        <buttonCell key="cell" type="push" title="HIde" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lOT-89-T8t">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="hideHints:" target="-2" id="Aji-ch-ER1"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O1D-xY-7rx">
+                        <rect key="frame" x="803" y="103" width="37" height="17"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="16o-Cv-jGv">
+                            <font key="font" metaFont="system" size="15"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2G-6B-lN9">
+                        <rect key="frame" x="820" y="103" width="37" height="17"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="CV8-rb-rj9">
+                            <font key="font" metaFont="system" size="15"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <animations/>
             </view>

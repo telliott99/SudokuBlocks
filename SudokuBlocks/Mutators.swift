@@ -3,9 +3,12 @@ this file contains the two functions that modify the dataD
 *after* a puzzle has been loaded
 */
 
-import Foundation
+import Cocoa
 
 let nullSet = Set<Int>()
+let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+let wc = appDelegate.mainWindowController
+
 
 // definition for reference:
 // var moveL = [ (Int, MoveType, [String], Set<Int>) ] ()
@@ -45,7 +48,11 @@ func respondToClick(key: String, point: NSPoint,
         return
     }
     dataD[key] = tmp
+                        
+    calculateHintsForThisPosition()
+    wc!.hideHintsNoObject()
     refreshScreen()
+                        
     /* 
 
     decided not to auto-clean now

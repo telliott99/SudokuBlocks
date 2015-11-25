@@ -6,6 +6,10 @@ class MainWindowController: NSWindowController {
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var labelTextField: NSTextField!
     @IBOutlet weak var popUp: NSPopUpButton!
+    @IBOutlet weak var checkbox: NSButton!
+    
+    @IBOutlet weak var label1: NSTextField!
+    @IBOutlet weak var label2: NSTextField!
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -25,6 +29,7 @@ class MainWindowController: NSWindowController {
         let result = loadPuzzleDataFromString(s)
         if result {
             labelTextField.stringValue = "custom puzzle"
+            hideHints(self)
             showCurrentState(self)
         }
     }
@@ -32,17 +37,20 @@ class MainWindowController: NSWindowController {
     @IBAction func loadFile(sender: AnyObject) {
         if let s = loadFileHandler() {
             loadPuzzleDataFromString(s)
+            hideHints(self)
             showCurrentState(self)
         }
     }
 
     @IBAction func requestClean(sender: AnyObject) {
         applyConstraintsForFilledSquaresOnce()
+        hideHints(self)
     }
     
     
     @IBAction func requestExhaustiveClean(sender: AnyObject) {
         applyConstraintsForFilledSquaresExhaustively()
+        hideHints(self)
     }
 
     @IBAction func showCurrentState(sender: AnyObject) {
@@ -64,16 +72,19 @@ class MainWindowController: NSWindowController {
         let result = getDatabasePuzzle(level)
         
         if (result == nil) { return }
-        
         let (key, value) = result!
         loadPuzzleDataFromString(value)
-        applyConstraintsForFilledSquaresOnce()
+        
+        if checkbox.state == NSOnState {
+            applyConstraintsForFilledSquaresOnce()
+        }
         
         let s2 = getCurrentStateAsString()  // has newlines
         textField.stringValue = s2
         labelTextField.stringValue = key
         unSelectTextField(textField)
         
+        hideHints(self)
         self.window!.display()
     }
     
@@ -95,6 +106,7 @@ class MainWindowController: NSWindowController {
             return
         }
         resetPuzzle()
+        hideHints(self)
     }
     
     @IBAction func showHints(sender: AnyObject) {
@@ -105,6 +117,11 @@ class MainWindowController: NSWindowController {
     
     @IBAction func hideHints(sender: AnyObject) {
         setHintStatus(false)
-        self.window!.display()
+        label1.stringValue = ""
+        label2.stringValue = ""
+    }
+    
+    func hideHintsNoObject() {
+        hideHints(self)
     }
 }

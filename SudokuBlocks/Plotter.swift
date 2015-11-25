@@ -78,7 +78,3 @@ func outlineHintSquares(){
     NSBezierPath.strokeRect(r)
 }
 
-func setHintStatus(flag: Bool) {
-    hintActive = flag
-    selectedHint = 0
-}

@@ -1,0 +1,196 @@
+Detecting CMD or arrow keys:
+
+func commandKeyPressed(theEvent: NSEvent) -> Bool {
+    /*
+    docs aren't particularly clear
+    by examining theEvent.modifierFlags.rawValue
+    
+    CommandKeyMask bit is set in 1048576
+    >>> bin(1048576)  # 2**20
+    '0b100000000000000000000'
+    
+    so... just do
+    1048576 & theEvent.modifierFlags.rawValue
+    if its non-zero, CommandKeyMask bit is set
+    
+    also saw 1048584
+    in Playground
+    1048584 & 1048576    // 1048576
+    */
+    
+    let n = theEvent.modifierFlags.rawValue
+    return ((n & 1048576) != 0)
+}
+
+// we do this to get key events
+override var acceptsFirstResponder: Bool { return true }
+
+// detect CMD+z
+@IBAction override func keyDown(theEvent: NSEvent) {
+    super.keyDown(theEvent)
+    // Swift.print(theEvent.keyCode)
+    if theEvent.keyCode == 6 && commandKeyPressed(theEvent) {
+        undoLastMove()
+        refreshScreen()
+    }
+if theEvent.keyCode == 123 { }
+    // left arrow
+if theEvent.keyCode == 124 { }
+    // right arrow
+    refreshScreen()
+
+=============================================
+
+Assertions
+
+assert ((st.count > 0),
+        "Received empty set for key: \(key)")
+=============================================
+
+
+Arrays:
+
+kL = kL.filter( { $0.characters.first == "z" } )
+let twos = arr.filter( { $0.count == 2 } )
+
+let R = 1..<10
+let dg = R.map( { String($0) } )
+
+=============================================
+
+Sets
+
+var a = Set<String>()
+if a.contains(key) { }
+a.insert(key)
+a.remove(key)
+
+a.union(b)
+a.intersect(b)
+a.subtract(b)
+a.exclusiveOr(b)
+
+a.isEqualTo(b)
+a.isSubsetOf(b)
+a.isSupersetOf(b)
+a.isDisjointWith(b)
+
+=============================================
+
+Reading and Writing Files
+
+var s: String
+    do { s = try String(contentsOfURL:op.URL!, encoding: NSUTF8StringEncoding) }
+    catch { return nil }
+
+do { try s.writeToURL(path, atomically:true,
+        encoding:NSUTF8StringEncoding) }
+    catch {  }
+
+=============================================
+
+Resources
+
+let path = NSBundle.mainBundle().pathForResource("db", ofType: "plist")
+
+let D = NSDictionary(contentsOfFile: path!)!
+
+=============================================
+
+Enums:
+
+enum HintType {
+    case one
+    case two
+}
+
+switch e {
+case .one:  doSomething()
+case .two:  doSomethingElse()
+}
+
+=============================================
+
+Overriding operators
+
+at global scope:
+
+func == (lhs: Hint, rhs: Hint) -> Bool {
+    if lhs.k != rhs.k { return false }
+    if lhs.iSet != rhs.iSet { return false }
+    return true
+}
+
+=============================================
+
+Structs
+
+struct Hint: CustomStringConvertible, Hashable, Equatable {
+    var k: String
+    var iSet: IntSet
+    var kp: KeyPair
+    var t: HintType
+    init(key: String, value: IntSet, keyPair: KeyPair, hintType: HintType) {
+        k = key
+        iSet = value
+        kp = keyPair
+        t = hintType
+    }
+    var description: String {
+        get {
+            let sortedISet = Array(iSet).sort()
+            // return "\(kp):\n\(k) = \(sortedISet)"
+            return "\(k) -> \(sortedISet)"
+        }
+    }
+    var hashValue: Int {
+        get {
+            let kA = orderedKeyArray()
+            return kA.indexOf(k)! * 10 + iSet.first!
+        }
+    }
+}
+
+=============================================
+
+the view just draws itself:
+
+class MyView: NSView {
+        
+    override func drawRect(dirtyRect: NSRect) {
+        let backgroundColor = NSColor.whiteColor()
+        backgroundColor.set()
+        NSBezierPath.fillRect(bounds)
+    }
+
+it can't directly reference functions in the window controller
+so
+
+let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+let mainWindowController = appDelegate.mainWindowController
+
+=============================================
+
+setting up a WindowController
+
+@NSApplicationMain
+class AppDelegate: NSObject, NSApplicationDelegate {
+
+    var mainWindowController: MainWindowController?
+    
+    func applicationDidFinishLaunching(aNotification: NSNotification) {
+        // Create a window controller with a XIB file of the same name
+        let mainWindowController = MainWindowController()
+        // Put the window of the window controller on screen
+        mainWindowController.showWindow( self)
+        
+        // Hillegass book says:  do setup first, then assignment:
+        // Set the property to point to the window controller
+        self.mainWindowController = mainWindowController
+        }
+}
+
+=============================================
+
+For defining colors from hex see:
+SudokuBlocks/Colors.swift
