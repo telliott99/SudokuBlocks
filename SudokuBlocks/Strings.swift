@@ -3,31 +3,6 @@
 
 import Cocoa
 
-/*
-< todo?
-<
-< enum RowIndex
-< enum ColIndex
-< struct Key {
-<     let row = RowIndex()
-<     let col = ColIndex()
-< }
-<
-< */
-
-enum Difficulty {
-    case easy
-    case medium
-    case hard
-    case evil
-}
-
-enum MoveType {
-    case insertion
-    case deletion
-    case substitution
-}
-
 let letters = "ABCDEFGHI"
 let letterArray = Array(arrayLiteral: letters)
 

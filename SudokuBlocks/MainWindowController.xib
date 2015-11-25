@@ -266,7 +266,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPk-9c-MS3">
-                        <rect key="frame" x="673" y="55" width="75" height="32"/>
+                        <rect key="frame" x="673" y="29" width="75" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jga-A9-xXq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -277,7 +277,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ca-KH-pDZ">
-                        <rect key="frame" x="783" y="55" width="73" height="32"/>
+                        <rect key="frame" x="783" y="29" width="73" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Undo" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TEY-P8-PIY">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -288,7 +288,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PNJ-bK-92c">
-                        <rect key="frame" x="671" y="96" width="74" height="32"/>
+                        <rect key="frame" x="726" y="93" width="74" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Show" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YHs-CH-XQY">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -307,7 +307,7 @@
                         </buttonCell>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oT3-pY-5S2">
-                        <rect key="frame" x="745" y="105" width="36" height="17"/>
+                        <rect key="frame" x="685" y="93" width="36" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hints" id="S4Z-IG-Y6N">
                             <font key="font" metaFont="system"/>
@@ -316,7 +316,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VJZ-jc-L8t">
-                        <rect key="frame" x="782" y="96" width="73" height="32"/>
+                        <rect key="frame" x="726" y="69" width="73" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="HIde" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lOT-89-T8t">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -336,12 +336,16 @@
                         </textFieldCell>
                     </textField>
                     <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nMP-2i-jn8">
-                        <rect key="frame" x="666" y="93" width="194" height="5"/>
+                        <rect key="frame" x="666" y="67" width="194" height="5"/>
                         <animations/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
                     </box>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghh-GV-uqt" customClass="CountView" customModule="SudokuBlocks" customModuleProvider="target">
+                        <rect key="frame" x="807" y="92" width="38" height="36"/>
+                        <animations/>
+                    </customView>
                 </subviews>
                 <animations/>
             </view>

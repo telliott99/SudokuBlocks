@@ -5,6 +5,7 @@ let kL = orderedKeyArray()  // ["A1" .. "I9"]
 let rectD = constructRectDict()
 let tiny_rectL = constructTinyRects()
 let divL = getBlueDividerRects()
+let lw = CGFloat(6)  // line width
 
 var hintActive = false
 var selectedHint = 0
@@ -66,12 +67,14 @@ func outlineHintSquares(){
     if hintList.count == 0 {
         return
     }
-    Swift.print(selectedHint)
     let h = hintList[selectedHint]
     let key = h.k
     let r = rectD[key]!
-    NSBezierPath.setDefaultLineWidth(3)
-    red.set()
+    NSBezierPath.setDefaultLineWidth(5)
+    switch  h.t {
+    case .one: red.set()
+    case .two: blue.set()
+    }
     NSBezierPath.strokeRect(r)
 }
 

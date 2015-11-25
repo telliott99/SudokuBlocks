@@ -12,6 +12,7 @@
 		751205521BF4DA1E00E6BB45 /* PlotUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */; };
 		75179A651BF7EEA800F461D6 /* Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A641BF7EEA800F461D6 /* Undo.swift */; };
 		75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A661BF82C5C00F461D6 /* Mutators.swift */; };
+		752E7B141C051437008725A6 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752E7B131C051437008725A6 /* CountView.swift */; };
 		755F6AF41BF64225006CD298 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F6AF31BF64225006CD298 /* Logic.swift */; };
 		7573691B1BF53B640031DDCD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573691A1BF53B640031DDCD /* Data.swift */; };
 		75A665811BF6BB4B00FF7FFC /* db.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75A665801BF6BB4B00FF7FFC /* db.plist */; };
@@ -29,6 +30,7 @@
 		75DFCE9C1BF6683400210640 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DFCE9B1BF6683400210640 /* Files.swift */; };
 		75E6A6051BF66DA10038D3AC /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6A6041BF66DA10038D3AC /* Strings.swift */; };
 		75E6A6071BF66FB20038D3AC /* ScreenUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6A6061BF66FB20038D3AC /* ScreenUtilities.swift */; };
+		75F9648F1C05222900130A73 /* EnumTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F9648E1C05222900130A73 /* EnumTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,7 @@
 		751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotUtilities.swift; sourceTree = "<group>"; };
 		75179A641BF7EEA800F461D6 /* Undo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Undo.swift; sourceTree = "<group>"; };
 		75179A661BF82C5C00F461D6 /* Mutators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutators.swift; sourceTree = "<group>"; };
+		752E7B131C051437008725A6 /* CountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		755F6AF31BF64225006CD298 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		7573691A1BF53B640031DDCD /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		75A665801BF6BB4B00FF7FFC /* db.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = db.plist; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		75DFCE9B1BF6683400210640 /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		75E6A6041BF66DA10038D3AC /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		75E6A6061BF66FB20038D3AC /* ScreenUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenUtilities.swift; sourceTree = "<group>"; };
+		75F9648E1C05222900130A73 /* EnumTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 				750129A21BF9D9F6006D8586 /* Breakpoints.swift */,
 				75C587E61BF5750B00AEDDAC /* Colors.swift */,
 				7573691A1BF53B640031DDCD /* Data.swift */,
+				752E7B131C051437008725A6 /* CountView.swift */,
+				75F9648E1C05222900130A73 /* EnumTypes.swift */,
 				75DFCE9B1BF6683400210640 /* Files.swift */,
 				75B178501C01F34700A79A19 /* Hints.swift */,
 				755F6AF31BF64225006CD298 /* Logic.swift */,
@@ -303,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75E6A6071BF66FB20038D3AC /* ScreenUtilities.swift in Sources */,
+				752E7B141C051437008725A6 /* CountView.swift in Sources */,
 				7507A9141BF535F8009D3EEF /* Plotter.swift in Sources */,
 				75E6A6051BF66DA10038D3AC /* Strings.swift in Sources */,
 				75179A651BF7EEA800F461D6 /* Undo.swift in Sources */,
@@ -312,6 +319,7 @@
 				75C465401BF3950100436C0F /* MyView.swift in Sources */,
 				75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */,
 				750129A31BF9D9F6006D8586 /* Breakpoints.swift in Sources */,
+				75F9648F1C05222900130A73 /* EnumTypes.swift in Sources */,
 				75DFCE9C1BF6683400210640 /* Files.swift in Sources */,
 				75B178531C01F48B00A79A19 /* Neighbors.swift in Sources */,
 				75C4653D1BF394AA00436C0F /* MainWindowController.swift in Sources */,

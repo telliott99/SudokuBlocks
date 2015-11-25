@@ -18,11 +18,12 @@ a particular IntSet is found in an array
 
 var hintList = [Hint]()
 
+// count the number of elements of any Equatable Type
 extension Array {
-    func elementCount (input: IntSet) -> Int {
+    func elementCount<T: Equatable> (input: T) -> Int {
         var count = 0
         for el in self {
-            if el as! IntSet == input {
+            if el as! T == input {
                 count += 1
             }
         }
@@ -37,6 +38,11 @@ func == (lhs: Hint, rhs: Hint) -> Bool {
     return true
 }
 
+func < (lhs: Hint, rhs: Hint) -> Bool {
+    let oka = orderedKeyArray()
+    return oka.indexOf(lhs.k) < oka.indexOf(rhs.k)
+}
+
 func == (lhs: KeyPair, rhs: KeyPair) -> Bool {
     if lhs.k1 != rhs.k1 { return false }
     if lhs.k2 != rhs.k2 { return false }
@@ -47,10 +53,12 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
     var k: String
     var iSet: IntSet
     var kp: KeyPair
-    init(key: String, value: IntSet, keyPair: KeyPair) {
+    var t: HintType
+    init(key: String, value: IntSet, keyPair: KeyPair, hintType: HintType) {
         k = key
         iSet = value
         kp = keyPair
+        t = hintType
     }
     var description: String {
         get {
@@ -84,8 +92,6 @@ struct KeyPair: CustomStringConvertible {
 // typealias DataSet = [String:IntSet]
 
 var a = [IntSet]()
-
-
 
 func findRepeatedTwos(neighbors: [String]) -> [KeyPair]? {
     let arr = getIntSetsForKeyArray(neighbors)
@@ -136,14 +142,14 @@ func getTypeOneHints() -> Set<Hint>? {
     // return an array of Hint objects if we find any
     var hints = [Hint]()
     
-    for neighbors in boxes + rows + cols {
-        if let results = findRepeatedTwos(neighbors) {
+    for group in boxes + rows + cols {
+        if let results = findRepeatedTwos(group) {
             
             for kp in results {
                 // a KeyPair has __ k1 and k2
                 let repeatedIntSet = dataD[kp.k1]!
                 
-                for key in neighbors {
+                for key in group {
                     if key == kp.k1 || key == kp.k2 {
                         continue
                     }
@@ -153,7 +159,8 @@ func getTypeOneHints() -> Set<Hint>? {
                     // if both values are present
                     if repeatedIntSet.isSubsetOf(set) {
                         let iSet = set.subtract(repeatedIntSet)
-                        let h = Hint(key: key, value: iSet, keyPair: kp)
+                        let h = Hint(key: key, value: iSet,
+                            keyPair: kp, hintType: .one)
                         hints.append(h)
                     }
                     
@@ -164,7 +171,8 @@ func getTypeOneHints() -> Set<Hint>? {
                         if set.contains(n) {
                             let intersection = set.intersect(repeatedIntSet)
                             let iSet = set.subtract(intersection)
-                            let h = Hint(key: key, value: iSet, keyPair: kp)
+                            let h = Hint(key: key, value: iSet,
+                                keyPair: kp, hintType: .one)
                             hints.append(h)
                          }
                     }
@@ -180,9 +188,49 @@ func getTypeOneHints() -> Set<Hint>? {
 }
 
 /*
-Type Two situation, we have one value that is 
-the only one for a box row or col
+Type Two situation
+we have one value that is
+the only one of its type 
+for a box row or col
 */
+
+func getTypeTwoHints() -> Set<Hint>? {
+    // return an array of Hint objects if we find any
+    var hints = [Hint]()
+    
+    for group in boxes + rows + cols {
+        // gather all the values
+        var arr = [Int]()
+        for key in group {
+            arr += Array(dataD[key]!)
+        }
+        
+        // get the singletons
+        var valueList = [Int]()
+        for value in Set(arr) {
+            if arr.elementCount(value) == 1 {
+                valueList.append(value)
+            }
+        }
+        
+        // find the affected keys
+        for value in valueList {
+            for key in group {
+                let data = dataD[key]!
+                if data.count > 1 && data.contains(value) {
+                    let kp = KeyPair(first: group.first!, second: group.last!)
+                    let set = Set([value])
+                    
+                    // and construct hints
+                    let h = Hint(key: key, value: set,
+                        keyPair: kp, hintType: .two)
+                    hints.append(h)
+                }
+            }
+        }
+    }
+    return Set(hints)
+}
 
 /*
 Type Three situation
@@ -197,16 +245,17 @@ we have a cycle like [1,2] [2,3] [3,1]
 
 func calculateHintsForThisPosition() {
     if let hints = getTypeOneHints() {
-        hintList = Array(hints)
-        /*
-        ha.sortInPlace()
-        for h in hintList {
-            Swift.print("\(h)")
-        }
-        */
+        hintList += Array(hints)
+    }
+    if let hints = getTypeTwoHints() {
+        hintList += Array(hints)
     }
     if hintList.count == 0 {
         runAlert("no hints right now")
+    }
+    hintList.sortInPlace( { $0 < $1 } )
+    for h in hintList {
+        Swift.print(h)
     }
 }
 
