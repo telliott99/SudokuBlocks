@@ -1,3 +1,3 @@
-more logic
+shows hints for completed puzzle!
 
 must check for legality of move to single value

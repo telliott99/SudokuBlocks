@@ -10,6 +10,7 @@
                 <outlet property="checkbox" destination="AUP-8Q-loD" id="bXn-3G-bZk"/>
                 <outlet property="label1" destination="O1D-xY-7rx" id="GXn-gZ-ihf"/>
                 <outlet property="label2" destination="X2G-6B-lN9" id="dq0-W5-C3c"/>
+                <outlet property="label3" destination="x0h-dk-9hy" id="hYT-IP-J1F"/>
                 <outlet property="labelTextField" destination="jd7-pi-DG3" id="gd3-Oc-0vh"/>
                 <outlet property="popUp" destination="oRa-5X-04e" id="zhK-Mc-1Ng"/>
                 <outlet property="textField" destination="uMC-hq-WIT" id="Vfe-yP-cLb"/>
@@ -355,11 +356,20 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X2G-6B-lN9">
-                        <rect key="frame" x="820" y="103" width="37" height="17"/>
+                        <rect key="frame" x="823" y="103" width="37" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="CV8-rb-rj9">
                             <font key="font" metaFont="system" size="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0h-dk-9hy">
+                        <rect key="frame" x="845" y="103" width="37" height="17"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="0" id="h6p-ay-6Bu">
+                            <font key="font" metaFont="system" size="15"/>
+                            <color key="textColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>

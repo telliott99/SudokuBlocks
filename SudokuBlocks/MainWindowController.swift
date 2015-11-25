@@ -10,6 +10,7 @@ class MainWindowController: NSWindowController {
     
     @IBOutlet weak var label1: NSTextField!
     @IBOutlet weak var label2: NSTextField!
+    @IBOutlet weak var label3: NSTextField!
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -119,6 +120,7 @@ class MainWindowController: NSWindowController {
         setHintStatus(false)
         label1.stringValue = ""
         label2.stringValue = ""
+        label3.stringValue = ""
     }
     
     func hideHintsNoObject() {

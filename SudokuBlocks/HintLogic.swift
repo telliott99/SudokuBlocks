@@ -1,15 +1,5 @@
 import Foundation
 
-/*
-implement detection of good next move
-
-"twos":
-square with key k has [1,2,3]
-two neighbors each have [1,2]
-hint is to show k and 3
-
-*/
-
 // typealias IntSet = Set<Int>
 // typealias DataSet = [String:IntSet]
 
@@ -61,7 +51,7 @@ so the last one cannot be {1}
 */
 
 func getTypeOneHints() -> Set<Hint>? {
-    // return an array of Hint objects if we find any
+    // return a set of Hint objects if we find any
     var hints = [Hint]()
     
     for group in boxes + rows + cols {
@@ -117,7 +107,7 @@ for a box row or col
 */
 
 func getTypeTwoHints() -> Set<Hint>? {
-    // return an array of Hint objects if we find any
+    // return a set of Hint objects if we find any
     var hints = [Hint]()
     
     for group in boxes + rows + cols {
@@ -154,14 +144,51 @@ func getTypeTwoHints() -> Set<Hint>? {
     return Set(hints)
 }
 
-/*
-Type Three situation
-we have 3 instances of 3 of a kind
-*/
 
 /*
-Type Four Situation
+Type Three Situation
 we have a cycle like [1,2] [2,3] [3,1]
+*/
+
+func getTypeThreeHints() -> Set<Hint>? {
+    // return an array of Hint objects if we find any
+    var hints = [Hint]()
+    
+    for group in boxes + rows + cols {
+        let values : [IntSet] = group.map( { dataD[$0]! } )
+        let arr = values.filter( { $0.count == 2 } )
+        for set1 in arr {
+            for set2 in arr {
+                for set3 in arr {
+                    if set1.intersect(set2).count == 1 &&
+                       set1.intersect(set3).count == 1 &&
+                       set2.intersect(set3).count == 1 {
+                        let k1 = group.filter( { dataD[$0] == set1 } ).first!
+                        let k2 = group.filter( { dataD[$0] == set2 } ).first!
+                        let k3 = group.filter( { dataD[$0] == set3 } ).first!
+                        let h = Hint(key: k1, value: set1,
+                            keyPair: KeyPair(first: k2, second:k3),
+                            hintType: .three)
+                        hints.append(h)
+                    }
+                }
+            }
+        }
+        
+        
+        if arr.count < 2 {
+            return nil
+        }
+        // getting complicated!
+    }
+
+return Set(hints)
+}
+
+
+/*
+Type Four situation
+we have 3 instances of 3 of a kind
 */
 
 

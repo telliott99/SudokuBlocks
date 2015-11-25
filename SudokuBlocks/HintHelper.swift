@@ -1,10 +1,13 @@
-import Foundation
+import Cocoa
 
 func calculateHintsForThisPosition() {
     if let hints = getTypeOneHints() {
         hintList += Array(hints)
     }
     if let hints = getTypeTwoHints() {
+        hintList += Array(hints)
+    }
+    if let hints = getTypeThreeHints() {
         hintList += Array(hints)
     }
     if hintList.count == 0 {
@@ -23,19 +26,25 @@ func setHintStatus(flag: Bool) {
     selectedHint = 0
 }
 
-func getHintCount() -> (Int,Int) {
+func getHintCount() -> (Int,Int,Int) {
     // get number of hints of each type
     let hL = hintList
-    var n = hL.count
     var m = 0
+    var n = 0
+    var o = 0
     for h in hL {
         if h.t == .one {
             m += 1
         }
+        if h.t == .two {
+            n += 1
+        }
+        if h.t == .three {
+            o += 1
+        }
     }
-    n -= m
-    // Swift.print("hints: \(m) \(n)")
-    return (m,n)
+    // Swift.print("hints: \(m) \(n)o) \(")
+    return (m,n,o)
 }
 
 func removeDuplicateHints(hintList: [Hint]) -> [Hint] {
@@ -52,5 +61,29 @@ func removeDuplicateHints(hintList: [Hint]) -> [Hint] {
     return ret
 }
 
+func displayHints() {
+    let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+    let wc = appDelegate.mainWindowController
+    
+    if hintActive {
+        outlineHintSquares()
+        let (c1,c2,c3) = getHintCount()
+        
+        if wc != nil {
+            wc!.label1.stringValue = String(c1)
+            wc!.label2.stringValue = String(c2)
+            wc!.label3.stringValue = String(c3)
+       }
+    }
+        
+    else {
+        if wc != nil {
+            wc!.label1.stringValue = String("")
+            wc!.label2.stringValue = String("")
+            wc!.label3.stringValue = String("")
+        }
+    }
+    
+}
 
 

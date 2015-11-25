@@ -71,27 +71,4 @@ class MyView: NSView {
             refreshScreen()
         }
     }
-    
-    func displayHints() {
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        let wc = appDelegate.mainWindowController
-        
-        if hintActive {
-            outlineHintSquares()
-            let (c1,c2) = getHintCount()
-            
-            if wc != nil {
-                wc!.label1.stringValue = String(c1)
-                wc!.label2.stringValue = String(c2)
-            }
-        }
-            
-        else {
-            if wc != nil {
-                wc!.label1.stringValue = String("")
-                wc!.label2.stringValue = String("")
-            }
-        }
-
-    }
 }

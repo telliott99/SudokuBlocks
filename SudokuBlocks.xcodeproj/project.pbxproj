@@ -12,7 +12,6 @@
 		751205521BF4DA1E00E6BB45 /* PlotUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */; };
 		75179A651BF7EEA800F461D6 /* Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A641BF7EEA800F461D6 /* Undo.swift */; };
 		75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A661BF82C5C00F461D6 /* Mutators.swift */; };
-		755F6AF41BF64225006CD298 /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F6AF31BF64225006CD298 /* Logic.swift */; };
 		7573691B1BF53B640031DDCD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573691A1BF53B640031DDCD /* Data.swift */; };
 		757FED281C06199C0052484D /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FED271C06199C0052484D /* Alerts.swift */; };
 		75A665811BF6BB4B00FF7FFC /* db.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75A665801BF6BB4B00FF7FFC /* db.plist */; };
@@ -58,7 +57,6 @@
 		751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotUtilities.swift; sourceTree = "<group>"; };
 		75179A641BF7EEA800F461D6 /* Undo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Undo.swift; sourceTree = "<group>"; };
 		75179A661BF82C5C00F461D6 /* Mutators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutators.swift; sourceTree = "<group>"; };
-		755F6AF31BF64225006CD298 /* Logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		7573691A1BF53B640031DDCD /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		757FED271C06199C0052484D /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		75A665801BF6BB4B00FF7FFC /* db.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = db.plist; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				75DEFE571C060629003ECC01 /* HintDefs.swift */,
 				75DEFE591C06067D003ECC01 /* HintHelper.swift */,
 				75B178501C01F34700A79A19 /* HintLogic.swift */,
-				755F6AF31BF64225006CD298 /* Logic.swift */,
 				75C4653B1BF394AA00436C0F /* MainWindowController.swift */,
 				75C4653F1BF3950100436C0F /* MyView.swift */,
 				75179A661BF82C5C00F461D6 /* Mutators.swift */,
@@ -321,7 +318,6 @@
 				75179A651BF7EEA800F461D6 /* Undo.swift in Sources */,
 				75B178511C01F34700A79A19 /* HintLogic.swift in Sources */,
 				757FED281C06199C0052484D /* Alerts.swift in Sources */,
-				755F6AF41BF64225006CD298 /* Logic.swift in Sources */,
 				75C587E71BF5750B00AEDDAC /* Colors.swift in Sources */,
 				75C465401BF3950100436C0F /* MyView.swift in Sources */,
 				75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */,

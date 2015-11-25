@@ -1,3 +1,7 @@
+typealias Move = (Int, MoveType, [String], Set<Int>)
+
+=============================================
+
 Detecting CMD or arrow keys:
 
 func commandKeyPressed(theEvent: NSEvent) -> Bool {

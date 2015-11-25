@@ -28,4 +28,5 @@ enum MoveType {
 enum HintType {
     case one
     case two
+    case three
 }

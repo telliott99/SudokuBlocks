@@ -34,6 +34,14 @@ func < (lhs: Hint, rhs: Hint) -> Bool {
             return true
         }
         else {
+            if lhs.t == .two {
+                if rhs.t == .one {
+                    return false
+                }
+                else {
+                    return true
+                }
+            }
             return false
         }
     }
@@ -62,7 +70,7 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
         get {
             let sortedISet = Array(iSet).sort()
             // return "\(kp):\n\(k) = \(sortedISet)"
-            return "\(k) -> \(sortedISet)"
+            return "\(k) -> \(sortedISet), type \(self.t)"
         }
     }
     var hashValue: Int {
