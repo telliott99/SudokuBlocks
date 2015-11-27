@@ -50,7 +50,7 @@ func respondToClick(key: String, point: NSPoint,
     dataD[key] = tmp
                         
     calculateHintsForThisPosition()
-    wc!.hideHintsNoObject()
+    wc!.hideHints()
     refreshScreen()
                         
     /* 

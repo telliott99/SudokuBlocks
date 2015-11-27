@@ -150,6 +150,7 @@ Type Three Situation
 we have a cycle like [1,2] [2,3] [3,1]
 */
 
+
 func getTypeThreeHints() -> Set<Hint>? {
     // return an array of Hint objects if we find any
     var hints = [Hint]()
@@ -157,20 +158,38 @@ func getTypeThreeHints() -> Set<Hint>? {
     for group in boxes + rows + cols {
         let values : [IntSet] = group.map( { dataD[$0]! } )
         let arr = values.filter( { $0.count == 2 } )
+        if arr.count < 3 { continue }
+        
+        var cycleList = [IntSet]()
+
         for set1 in arr {
             for set2 in arr {
+                if set1 == set2 { continue }
                 for set3 in arr {
-                    if set1.intersect(set2).count == 1 &&
-                       set1.intersect(set3).count == 1 &&
-                       set2.intersect(set3).count == 1 {
-                        let k1 = group.filter( { dataD[$0] == set1 } ).first!
-                        let k2 = group.filter( { dataD[$0] == set2 } ).first!
-                        let k3 = group.filter( { dataD[$0] == set3 } ).first!
-                        let h = Hint(key: k1, value: set1,
-                            keyPair: KeyPair(first: k2, second:k3),
-                            hintType: .three)
-                        hints.append(h)
-                    }
+                    if set1 == set3 { continue }
+                    if set2 == set3 { continue }
+                    
+                    Swift.print("Got 3:  \(set1) \(set2) \(set3)")
+                    let set = Set(set1.union(set2).union(set3))
+                    if set.count != 3 { continue }
+                    cycleList = [set1,set2,set3]
+                }
+            }
+        }
+        
+        // we have a cycle (perhaps not all)
+        // now find an affected set!
+        for set1 in arr {
+            for set2 in cycleList {
+                if set1 != set2 && set1.intersect(set2).count != 0 {
+                    let k1 = group.filter( { dataD[$0] != set1 } ).first!
+                    let k2 = group.filter( { dataD[$0] == cycleList.first! } ).first!
+                    let k3 = group.filter( { dataD[$0] == cycleList.last! } ).first!
+                    let h = Hint(key: k1, value: set1,
+                        keyPair: KeyPair(first: k2, second:k3),
+                        hintType: .three)
+                    hints.append(h)
+
                 }
             }
         }

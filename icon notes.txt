@@ -1,0 +1,19 @@
+folder
+[IconName].iconset
+
+must have different sizes..
+
+These icons must be named with the pattern icon_16x16.png, icon_32x32.png, icon_128x128.png and so on
+
+iconutil -c icns [IconName].iconset
+
+drag it into the project
+
+in the info.plist file set
+CFBundleIconFile (Icon File as Key) to [IconName]
+
+
+
+
+
+'Copy Bundle Resources' Build Phase

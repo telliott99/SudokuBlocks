@@ -12,6 +12,8 @@ class MainWindowController: NSWindowController {
     @IBOutlet weak var label2: NSTextField!
     @IBOutlet weak var label3: NSTextField!
     
+    let emptyString = ""
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         getRandomPuzzle(self)
@@ -118,12 +120,14 @@ class MainWindowController: NSWindowController {
     
     @IBAction func hideHints(sender: AnyObject) {
         setHintStatus(false)
-        label1.stringValue = ""
-        label2.stringValue = ""
-        label3.stringValue = ""
+        hintList = [Hint]()
+        label1.stringValue = emptyString
+        label2.stringValue = emptyString
+        label3.stringValue = emptyString
     }
     
-    func hideHintsNoObject() {
+    // OK b/c different signature than the @IBAction
+    func hideHints() {
         hideHints(self)
     }
 }

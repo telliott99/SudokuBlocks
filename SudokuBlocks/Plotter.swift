@@ -74,7 +74,7 @@ func outlineHintSquares(){
     switch  h.t {
     case .one: red.set()
     case .two: blue.set()
-    case .three: cyan.set()
+    case .three: salmon.set()
     }
     NSBezierPath.strokeRect(r)
 }

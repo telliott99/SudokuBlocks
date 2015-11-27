@@ -50,7 +50,8 @@ func getHintCount() -> (Int,Int,Int) {
 func removeDuplicateHints(hintList: [Hint]) -> [Hint] {
     var a = Set<String>()
     var ret = [Hint]()
-    for h in hintList {
+    // try to save type 3's
+    for h in hintList.reverse() {
         let key = h.k
         if a.contains(key) {
             continue
