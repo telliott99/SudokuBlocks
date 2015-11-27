@@ -5,9 +5,9 @@ import Foundation
 
 var a = [IntSet]()
 
-func findRepeatedTwos(neighbors: [String]) -> [KeyPair]? {
+func findRepeatedTwos(neighbors: [String]) -> [KeyArray]? {
     let arr = getIntSetsForKeyArray(neighbors)
-
+    
     // filter for 2 elements
     let twos = arr.filter( { $0.count == 2 } )
     
@@ -21,8 +21,10 @@ func findRepeatedTwos(neighbors: [String]) -> [KeyPair]? {
     // repeatsTwice contains IntSets that occur twice
     // now we need the corresponding keys, we return *both* keys
     
-    var results = [KeyPair]()
+    var results = [KeyArray]()
     
+    
+    // rewrite more idiomatically
     for set in repeatsTwice {
         var t = [String]()
         for key in neighbors {
@@ -30,7 +32,9 @@ func findRepeatedTwos(neighbors: [String]) -> [KeyPair]? {
                 t.append(key)
             }
         }
-        results.append(KeyPair(first:t[0], second:t[1]))
+        
+        // results.append(KeyPair(first:t[0], second:t[1]))
+        results.append(t)
     }
     if results.count == 0 {
         return nil
@@ -57,12 +61,14 @@ func getTypeOneHints() -> Set<Hint>? {
     for group in boxes + rows + cols {
         if let results = findRepeatedTwos(group) {
             
-            for kp in results {
+            for keyArray in results {
+                
                 // a KeyPair has __ k1 and k2
-                let repeatedIntSet = dataD[kp.k1]!
+                let repeatedIntSet = dataD[keyArray[0]]!
                 
                 for key in group {
-                    if key == kp.k1 || key == kp.k2 {
+                    if keyArray.contains(key) {
+                    //if key == kp.k1 || key == kp.k2 {
                         continue
                     }
                     
@@ -71,8 +77,10 @@ func getTypeOneHints() -> Set<Hint>? {
                     // if both values are present
                     if repeatedIntSet.isSubsetOf(set) {
                         let iSet = set.subtract(repeatedIntSet)
+                        
                         let h = Hint(key: key, value: iSet,
-                            keyPair: kp, hintType: .one)
+                            keyArray: keyArray, hintType: .one)
+                        
                         hints.append(h)
                     }
                     
@@ -83,8 +91,9 @@ func getTypeOneHints() -> Set<Hint>? {
                         if set.contains(n) {
                             let intersection = set.intersect(repeatedIntSet)
                             let iSet = set.subtract(intersection)
+                            
                             let h = Hint(key: key, value: iSet,
-                                keyPair: kp, hintType: .one)
+                                keyArray: keyArray, hintType: .one)
                             hints.append(h)
                          }
                     }
@@ -118,24 +127,25 @@ func getTypeTwoHints() -> Set<Hint>? {
         }
         
         // get the singletons
-        var valueList = [Int]()
+        var setsWithOne = [Int]()
         for value in Set(arr) {
             if arr.elementCount(value) == 1 {
-                valueList.append(value)
+                setsWithOne.append(value)
             }
         }
         
         // find the affected keys
-        for value in valueList {
+        for value in setsWithOne {
             for key in group {
                 let data = dataD[key]!
+                
                 if data.count > 1 && data.contains(value) {
-                    let kp = KeyPair(first: group.first!, second: group.last!)
                     let set = Set([value])
                     
-                    // and construct hints
+                    // this KeyArray is meaningless for .two
                     let h = Hint(key: key, value: set,
-                        keyPair: kp, hintType: .two)
+                        keyArray: [] as KeyArray, hintType: .two)
+                    
                     hints.append(h)
                 }
             }
@@ -148,6 +158,7 @@ func getTypeTwoHints() -> Set<Hint>? {
 /*
 Type Three Situation
 we have a cycle like [1,2] [2,3] [3,1]
+so any other occurrence of 1, 2, or 3 deserves a hint
 */
 
 
@@ -156,51 +167,58 @@ func getTypeThreeHints() -> Set<Hint>? {
     var hints = [Hint]()
     
     for group in boxes + rows + cols {
+        
         let values : [IntSet] = group.map( { dataD[$0]! } )
-        let arr = values.filter( { $0.count == 2 } )
-        if arr.count < 3 { continue }
+        let setsWithTwo = values.filter( { $0.count == 2 } )
+        if setsWithTwo.count < 3 { continue }
         
         var cycleList = [IntSet]()
 
-        for set1 in arr {
-            for set2 in arr {
+        // better or worse than enumeration?
+        for set1 in setsWithTwo {
+            for set2 in setsWithTwo {
                 if set1 == set2 { continue }
-                for set3 in arr {
+                for set3 in setsWithTwo {
                     if set1 == set3 { continue }
                     if set2 == set3 { continue }
                     
                     Swift.print("Got 3:  \(set1) \(set2) \(set3)")
-                    let set = Set(set1.union(set2).union(set3))
-                    if set.count != 3 { continue }
+                    if Set(set1.union(set2).union(set3)).count != 3 {
+                        continue
+                    }
                     cycleList = [set1,set2,set3]
                 }
             }
         }
         
-        // we have a cycle (perhaps not all)
-        // now find an affected set!
-        for set1 in arr {
+        // we have one cycle (perhaps not all of them, but ignore this)
+        // now find an affected set
+        for key in group {
+            let set = dataD[key]!
+            
+            // for each set of the array and each set in the cycle
+            // if the set is not in the cycle
+            // but shares at least one element, possibly two
+
+            if cycleList.contains(set) { continue }
             for set2 in cycleList {
-                if set1 != set2 && set1.intersect(set2).count != 0 {
-                    let k1 = group.filter( { dataD[$0] != set1 } ).first!
-                    let k2 = group.filter( { dataD[$0] == cycleList.first! } ).first!
-                    let k3 = group.filter( { dataD[$0] == cycleList.last! } ).first!
-                    let h = Hint(key: k1, value: set1,
-                        keyPair: KeyPair(first: k2, second:k3),
+                if !set.intersect(set2).isEmpty {
+                    
+                    // find the keys for the sets in the cycle list
+                    let k1 = getKeyForValue(group, value: cycleList[0])!
+                    let k2 = getKeyForValue(group, value: cycleList[1])!
+                    let k3 = getKeyForValue(group, value: cycleList[2])!
+                    
+                    let h = Hint(key: key, value: set,
+                        keyArray: [k1,k2,k3],
                         hintType: .three)
+                    
                     hints.append(h)
 
                 }
             }
         }
-        
-        
-        if arr.count < 2 {
-            return nil
-        }
-        // getting complicated!
     }
-
 return Set(hints)
 }
 

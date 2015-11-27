@@ -1,4 +1,13 @@
-import Foundation
+import Cocoa
+
+func colorForHintType(t: HintType) -> NSColor {
+    switch  t {
+    case .one:  return blue
+    case .two: return red
+    case .three: return clover
+    }
+}
+
 
 /*
 convenience method
@@ -49,21 +58,18 @@ func < (lhs: Hint, rhs: Hint) -> Bool {
     return oka.indexOf(lhs.k) < oka.indexOf(rhs.k)
 }
 
-func == (lhs: KeyPair, rhs: KeyPair) -> Bool {
-    if lhs.k1 != rhs.k1 { return false }
-    if lhs.k2 != rhs.k2 { return false }
-    return true
-}
+typealias KeyArray = [String]
 
 struct Hint: CustomStringConvertible, Hashable, Equatable {
     var k: String
     var iSet: IntSet
-    var kp: KeyPair
+    var ka: [String]
     var t: HintType
-    init(key: String, value: IntSet, keyPair: KeyPair, hintType: HintType) {
+    init(key: String, value: IntSet,
+         keyArray: KeyArray, hintType: HintType) {
         k = key
         iSet = value
-        kp = keyPair
+        ka = keyArray
         t = hintType
     }
     var description: String {
@@ -77,19 +83,6 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
         get {
             let kA = orderedKeyArray()
             return kA.indexOf(k)! * 10 + iSet.first!
-        }
-    }
-}
-
-struct KeyPair: CustomStringConvertible {
-    var k1, k2: String
-    init(first: String, second: String) {
-        k1 = first
-        k2 = second
-    }
-    var description: String {
-        get {
-            return "\(k1) and \(k2)"
         }
     }
 }

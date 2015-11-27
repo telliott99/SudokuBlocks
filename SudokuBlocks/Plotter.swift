@@ -71,11 +71,8 @@ func outlineHintSquares(){
     let key = h.k
     let r = rectD[key]!
     NSBezierPath.setDefaultLineWidth(5)
-    switch  h.t {
-    case .one: red.set()
-    case .two: blue.set()
-    case .three: salmon.set()
-    }
+    
+    colorForHintType(h.t).set()
     NSBezierPath.strokeRect(r)
 }
 

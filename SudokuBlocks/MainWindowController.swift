@@ -113,6 +113,10 @@ class MainWindowController: NSWindowController {
     }
     
     @IBAction func showHints(sender: AnyObject) {
+        label1.textColor = colorForHintType(.one)
+        label2.textColor = colorForHintType(.two)
+        label3.textColor = colorForHintType(.three)
+
         setHintStatus(true)
         calculateHintsForThisPosition()
         self.window!.display()
@@ -124,9 +128,11 @@ class MainWindowController: NSWindowController {
         label1.stringValue = emptyString
         label2.stringValue = emptyString
         label3.stringValue = emptyString
+        self.window!.display()
     }
     
     // OK b/c different signature than the @IBAction
+    // can't call that one from Swift files  why??
     func hideHints() {
         hideHints(self)
     }

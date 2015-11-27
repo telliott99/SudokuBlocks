@@ -1,6 +1,7 @@
 import Cocoa
 
 let outlineColor = mercury
+
 let cL = constructColorList()
 
 // Not sure what happened to Crayons
@@ -32,6 +33,7 @@ let cantaloupe = NSColor(netHex: 0xFFCC66)
 let clover = NSColor(netHex: 0x008000)
 let cyan = NSColor.cyanColor()
 let eggplant = NSColor(netHex: 0x400080)
+let green = NSColor.greenColor()
 let lime = NSColor(netHex: 0x80FF00)
 let magenta = NSColor.magentaColor()
 let maroon = NSColor(netHex: 0x800040)

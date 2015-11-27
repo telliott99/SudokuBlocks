@@ -84,7 +84,6 @@ func displayHints() {
             wc!.label3.stringValue = String("")
         }
     }
-    
 }
 
 

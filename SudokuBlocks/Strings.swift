@@ -19,6 +19,17 @@ func orderedKeyArray() -> [String] {
     return kL
 }
 
+// given a group of keys and a value, find the key for the value
+
+func getKeyForValue(group: [String], value: IntSet) -> String? {
+    for key in group {
+        if dataD[key]! == value {
+            return key
+        }
+    }
+    return nil
+}
+
 func validatedPuzzleString(s: String) -> String? {
     // let ws = NSCharacterSet.whitespaceAndNewlineCharacterSet()
     // doesn't work properly for \n
