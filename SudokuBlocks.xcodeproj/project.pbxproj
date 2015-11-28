@@ -12,6 +12,8 @@
 		751205521BF4DA1E00E6BB45 /* PlotUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */; };
 		75179A651BF7EEA800F461D6 /* Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A641BF7EEA800F461D6 /* Undo.swift */; };
 		75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A661BF82C5C00F461D6 /* Mutators.swift */; };
+		756A58911C08FBFA00545250 /* TextWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A588F1C08FBFA00545250 /* TextWindowController.swift */; };
+		756A58921C08FBFA00545250 /* TextWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756A58901C08FBFA00545250 /* TextWindowController.xib */; };
 		7573691B1BF53B640031DDCD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573691A1BF53B640031DDCD /* Data.swift */; };
 		757FED281C06199C0052484D /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FED271C06199C0052484D /* Alerts.swift */; };
 		75A665811BF6BB4B00FF7FFC /* db.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75A665801BF6BB4B00FF7FFC /* db.plist */; };
@@ -57,6 +59,8 @@
 		751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotUtilities.swift; sourceTree = "<group>"; };
 		75179A641BF7EEA800F461D6 /* Undo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Undo.swift; sourceTree = "<group>"; };
 		75179A661BF82C5C00F461D6 /* Mutators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutators.swift; sourceTree = "<group>"; };
+		756A588F1C08FBFA00545250 /* TextWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextWindowController.swift; sourceTree = "<group>"; };
+		756A58901C08FBFA00545250 /* TextWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextWindowController.xib; sourceTree = "<group>"; };
 		7573691A1BF53B640031DDCD /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		757FED271C06199C0052484D /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		75A665801BF6BB4B00FF7FFC /* db.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = db.plist; sourceTree = "<group>"; };
@@ -151,10 +155,12 @@
 				751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */,
 				75E6A6061BF66FB20038D3AC /* ScreenUtilities.swift */,
 				75E6A6041BF66DA10038D3AC /* Strings.swift */,
+				756A588F1C08FBFA00545250 /* TextWindowController.swift */,
 				75179A641BF7EEA800F461D6 /* Undo.swift */,
 				75C465141BF3945200436C0F /* Assets.xcassets */,
 				75C4653C1BF394AA00436C0F /* MainWindowController.xib */,
 				75C465161BF3945200436C0F /* MainMenu.xib */,
+				756A58901C08FBFA00545250 /* TextWindowController.xib */,
 				75C465191BF3945300436C0F /* Info.plist */,
 				75A665801BF6BB4B00FF7FFC /* db.plist */,
 			);
@@ -283,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				756A58921C08FBFA00545250 /* TextWindowController.xib in Resources */,
 				75C465151BF3945200436C0F /* Assets.xcassets in Resources */,
 				75C4653E1BF394AA00436C0F /* MainWindowController.xib in Resources */,
 				75C465181BF3945200436C0F /* MainMenu.xib in Resources */,
@@ -317,6 +324,7 @@
 				75E6A6051BF66DA10038D3AC /* Strings.swift in Sources */,
 				75179A651BF7EEA800F461D6 /* Undo.swift in Sources */,
 				75B178511C01F34700A79A19 /* HintDetector.swift in Sources */,
+				756A58911C08FBFA00545250 /* TextWindowController.swift in Sources */,
 				757FED281C06199C0052484D /* Alerts.swift in Sources */,
 				75C587E71BF5750B00AEDDAC /* Colors.swift in Sources */,
 				75C465401BF3950100436C0F /* MyView.swift in Sources */,

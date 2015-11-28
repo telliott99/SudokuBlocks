@@ -3,8 +3,6 @@ import Cocoa
 class MainWindowController: NSWindowController {
     
     // We know these guys exist!
-    @IBOutlet weak var textField: NSTextField!
-    @IBOutlet weak var labelTextField: NSTextField!
     @IBOutlet weak var popUp: NSPopUpButton!
     @IBOutlet weak var checkbox: NSButton!
     
@@ -17,7 +15,7 @@ class MainWindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         getRandomPuzzle(self)
-        showCurrentState(self)
+        // showCurrentState(self)
     }
     
     override var windowNibName: String {
@@ -25,48 +23,28 @@ class MainWindowController: NSWindowController {
     }
 
     // should show an alert on failure
-    
-    @IBAction func loadText(sender: AnyObject) {
-        let s = textField.stringValue
-        // print("textField.stringValue: \(s)")
-        let result = loadPuzzleDataFromString(s)
-        if result {
-            labelTextField.stringValue = "custom puzzle"
-            hideHints(self)
-            showCurrentState(self)
-        }
-    }
-    
+        
     @IBAction func loadFile(sender: AnyObject) {
         if let s = loadFileHandler() {
-            loadPuzzleDataFromString(s)
+            loadPuzzleDataFromString("", value: s)
             hideHints(self)
-            showCurrentState(self)
+            // showCurrentState(self)
         }
     }
 
     @IBAction func requestClean(sender: AnyObject) {
         applyConstraintsForFilledSquaresOnce()
         hideHints(self)
+        self.window!.display()
     }
     
     
     @IBAction func requestExhaustiveClean(sender: AnyObject) {
         applyConstraintsForFilledSquaresExhaustively()
         hideHints(self)
-    }
-
-    @IBAction func showCurrentState(sender: AnyObject) {
-        let s = getCurrentStateAsString()
-        textField.stringValue = s
         self.window!.display()
     }
-    
-    @IBAction func writeToFile(sender: AnyObject) {
-        let s = getCurrentStateAsString()
-        savePuzzleDataToFile(s)
-    }
-    
+        
     @IBAction func getRandomPuzzle(sender: AnyObject) {
         
         // read popUp
@@ -76,19 +54,11 @@ class MainWindowController: NSWindowController {
         
         if (result == nil) { return }
         let (key, value) = result!
-        loadPuzzleDataFromString(value)
+        loadPuzzleDataFromString(key, value: value)
         
         if checkbox.state == NSOnState {
             applyConstraintsForFilledSquaresOnce()
         }
-        
-        let s2 = getCurrentStateAsString()  // has newlines
-        textField.stringValue = s2
-        labelTextField.stringValue = key
-        unSelectTextField(textField)
-        
-        hideHints(self)
-        self.window!.display()
     }
     
     @IBAction func undo(sender: AnyObject) {
@@ -136,4 +106,27 @@ class MainWindowController: NSWindowController {
     func hideHints() {
         hideHints(self)
     }
+    
+    @IBAction func showHelp(sender: AnyObject) {
+        showHelpAsAlert()
+    }
+    
+    @IBAction func showTextWindow(sender: AnyObject) {
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        
+        if let textWindowController = appDelegate.textWindowController {
+            textWindowController.showCurrentState()
+         }
+    }
+    
+    @IBAction func hideTextWindow(sender: AnyObject) {
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        
+        if let textWindowController = appDelegate.textWindowController {
+            if let w = textWindowController.window {
+                w.orderOut(self)
+            }
+        }
+    }
+
 }

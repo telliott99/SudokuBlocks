@@ -14,3 +14,14 @@ func runAlert(s: String) -> Bool {
     }
     return false
 }
+
+func showHelpAsAlert() {
+    var s = ""
+    s += "Click to delete a single value\n"
+    s += "Command-click to select a value\n"
+    s += "Command-z to go back\n"
+    s += "\n"
+    s += "Hint types are color-coded\n"
+    s += "Arrows cycle through hints\n"
+    runAlert(s)
+}

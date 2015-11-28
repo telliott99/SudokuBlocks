@@ -1,7 +1,9 @@
 import Foundation
 
-// typealias IntSet = Set<Int>
-// typealias DataSet = [String:IntSet]
+/*
+typealias IntSet = Set<Int>
+typealias DataSet = [String:IntSet]
+*/
 
 var a = [IntSet]()
 
@@ -19,20 +21,21 @@ func findRepeatedTwos(neighbors: [String]) -> [KeyArray]? {
     }
     
     // repeatsTwice contains IntSets that occur twice
-    // now we need the corresponding keys, we return *both* keys
-    
     var results = [KeyArray]()
     
-    
-    // rewrite more idiomatically
+    // now we need the corresponding keys, we return *both* keys
     for set in repeatsTwice {
+        /*
         var t = [String]()
         for key in neighbors {
             if set == dataD[key] {
                 t.append(key)
             }
         }
+        */
         
+        // rewrite more idiomatically
+        let t = neighbors.filter( { set == dataD[$0] } )
         // results.append(KeyPair(first:t[0], second:t[1]))
         results.append(t)
     }
@@ -63,13 +66,11 @@ func getTypeOneHints() -> Set<Hint>? {
             
             for keyArray in results {
                 
-                // a KeyPair has __ k1 and k2
                 let repeatedIntSet = dataD[keyArray[0]]!
                 
                 for key in group {
                     if keyArray.contains(key) {
-                    //if key == kp.k1 || key == kp.k2 {
-                        continue
+                         continue
                     }
                     
                     let set = Set(dataD[key]!)
@@ -78,7 +79,7 @@ func getTypeOneHints() -> Set<Hint>? {
                     if repeatedIntSet.isSubsetOf(set) {
                         let iSet = set.subtract(repeatedIntSet)
                         
-                        let h = Hint(key: key, value: iSet,
+                        let h = Hint(key: key, iSet: iSet,
                             keyArray: keyArray, hintType: .one)
                         
                         hints.append(h)
@@ -92,7 +93,7 @@ func getTypeOneHints() -> Set<Hint>? {
                             let intersection = set.intersect(repeatedIntSet)
                             let iSet = set.subtract(intersection)
                             
-                            let h = Hint(key: key, value: iSet,
+                            let h = Hint(key: key, iSet: iSet,
                                 keyArray: keyArray, hintType: .one)
                             hints.append(h)
                          }
@@ -143,7 +144,7 @@ func getTypeTwoHints() -> Set<Hint>? {
                     let set = Set([value])
                     
                     // this KeyArray is meaningless for .two
-                    let h = Hint(key: key, value: set,
+                    let h = Hint(key: key, iSet: set,
                         keyArray: [] as KeyArray, hintType: .two)
                     
                     hints.append(h)
@@ -162,7 +163,7 @@ so any other occurrence of 1, 2, or 3 deserves a hint
 */
 
 
-func getTypeThreeHints() -> Set<Hint>? {
+func getTypeThreeHints() -> [Hint]? {
     // return an array of Hint objects if we find any
     var hints = [Hint]()
     
@@ -209,7 +210,7 @@ func getTypeThreeHints() -> Set<Hint>? {
                     let k2 = getKeyForValue(group, value: cycleList[1])!
                     let k3 = getKeyForValue(group, value: cycleList[2])!
                     
-                    let h = Hint(key: key, value: set,
+                    let h = Hint(key: key, iSet: set,
                         keyArray: [k1,k2,k3],
                         hintType: .three)
                     
@@ -219,7 +220,7 @@ func getTypeThreeHints() -> Set<Hint>? {
             }
         }
     }
-return Set(hints)
+    return hints
 }
 
 

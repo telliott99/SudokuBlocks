@@ -2,19 +2,19 @@ import Cocoa
 
 func calculateHintsForThisPosition() {
     if let hints = getTypeOneHints() {
-        hintList += Array(hints)
+        hintList += hints
     }
     if let hints = getTypeTwoHints() {
-        hintList += Array(hints)
+        hintList += hints
     }
     if let hints = getTypeThreeHints() {
-        hintList += Array(hints)
+        hintList += hints
     }
     if hintList.count == 0 {
         runAlert("no hints right now")
     }
     
-    hintList = removeDuplicateHints(hintList)
+    // hintList = removeDuplicateHints(hintList)
     hintList.sortInPlace( { $0 < $1 } )
     for h in hintList {
         Swift.print(h)
@@ -28,22 +28,18 @@ func setHintStatus(flag: Bool) {
 
 func getHintCount() -> (Int,Int,Int) {
     // get number of hints of each type
-    let hL = hintList
     var m = 0
     var n = 0
     var o = 0
-    for h in hL {
-        if h.t == .one {
-            m += 1
-        }
-        if h.t == .two {
-            n += 1
-        }
-        if h.t == .three {
-            o += 1
+    
+    for hint in hintList {
+        switch  hint.hintType {
+        case .one:  m += 1
+        case .two:  n += 1
+        case .three: o += 1
         }
     }
-    // Swift.print("hints: \(m) \(n)o) \(")
+    // Swift.print("hints: \(m) \(n) \(o)")
     return (m,n,o)
 }
 
@@ -52,7 +48,7 @@ func removeDuplicateHints(hintList: [Hint]) -> [Hint] {
     var ret = [Hint]()
     // try to save type 3's
     for h in hintList.reverse() {
-        let key = h.k
+        let key = h.key
         if a.contains(key) {
             continue
         }

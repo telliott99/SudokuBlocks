@@ -4,6 +4,8 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var mainWindowController: MainWindowController?
+    var textWindowController: TextWindowController?
+
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         
@@ -17,6 +19,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Set the property to point to the window controller
         self.mainWindowController = mainWindowController
+        
+        let textWindowController = TextWindowController()
+        
+        self.textWindowController = textWindowController
+        
+
         }
 }
 

@@ -68,11 +68,11 @@ func outlineHintSquares(){
         return
     }
     let h = hintList[selectedHint]
-    let key = h.k
+    let key = h.key
     let r = rectD[key]!
     NSBezierPath.setDefaultLineWidth(5)
     
-    colorForHintType(h.t).set()
+    colorForHintType(h.hintType).set()
     NSBezierPath.strokeRect(r)
 }
 

@@ -32,19 +32,19 @@ extension Array {
 
 
 func == (lhs: Hint, rhs: Hint) -> Bool {
-    if lhs.k != rhs.k { return false }
+    if lhs.key != rhs.key { return false }
     if lhs.iSet != rhs.iSet { return false }
     return true
 }
 
 func < (lhs: Hint, rhs: Hint) -> Bool {
-    if lhs.t != rhs.t {
-        if lhs.t == .one {
+    if lhs.hintType != rhs.hintType {
+        if lhs.hintType == .one {
             return true
         }
         else {
-            if lhs.t == .two {
-                if rhs.t == .one {
+            if lhs.hintType == .two {
+                if rhs.hintType == .one {
                     return false
                 }
                 else {
@@ -55,34 +55,27 @@ func < (lhs: Hint, rhs: Hint) -> Bool {
         }
     }
     let oka = orderedKeyArray()
-    return oka.indexOf(lhs.k) < oka.indexOf(rhs.k)
+    return oka.indexOf(lhs.key) < oka.indexOf(rhs.key)
 }
 
 typealias KeyArray = [String]
 
 struct Hint: CustomStringConvertible, Hashable, Equatable {
-    var k: String
-    var iSet: IntSet
-    var ka: [String]
-    var t: HintType
-    init(key: String, value: IntSet,
-         keyArray: KeyArray, hintType: HintType) {
-        k = key
-        iSet = value
-        ka = keyArray
-        t = hintType
-    }
+    let key: String
+    let iSet: IntSet
+    let keyArray: [String]
+    let hintType: HintType
     var description: String {
         get {
             let sortedISet = Array(iSet).sort()
             // return "\(kp):\n\(k) = \(sortedISet)"
-            return "\(k) -> \(sortedISet), type \(self.t)"
+            return "\(key) -> \(sortedISet), type \(self.hintType)"
         }
     }
     var hashValue: Int {
         get {
-            let kA = orderedKeyArray()
-            return kA.indexOf(k)! * 10 + iSet.first!
+            let keyArray = orderedKeyArray()
+            return keyArray.indexOf(key)! * 10 + iSet.first!
         }
     }
 }

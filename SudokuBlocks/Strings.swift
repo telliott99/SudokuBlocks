@@ -9,6 +9,8 @@ let letterArray = Array(arrayLiteral: letters)
 let digits =  "123456789"
 let digitArray = Array(arrayLiteral: digits)
 
+var keyForCurrentPuzzle = ""
+
 func orderedKeyArray() -> [String] {
     var kL = [String]()
     for l in letters.characters {
@@ -53,14 +55,15 @@ func validatedPuzzleString(s: String) -> String? {
 }
 
 // returns true for success
-func loadPuzzleDataFromString(s: String) -> Bool {
-    let ns = validatedPuzzleString(s)
+func loadPuzzleDataFromString(key: String, value: String) -> Bool {
+    let ns = validatedPuzzleString(value)
     if ns == nil {
         let _ = runAlert("something wrong with that one")
-        Swift.print(s)
+        Swift.print(value)
         Swift.print(ns)
         return false
     }
+    keyForCurrentPuzzle = key
     constructNewPuzzle(ns!)
     refreshScreen()
     return true
