@@ -15,15 +15,21 @@ func calculateHintsForThisPosition() {
     }
     
     // hintList = removeDuplicateHints(hintList)
+    
     hintList.sortInPlace( { $0 < $1 } )
+    /*
     for h in hintList {
         Swift.print(h)
     }
+    */
 }
 
 func setHintStatus(flag: Bool) {
     hintActive = flag
     selectedHint = 0
+    if !flag {
+        hintList = []
+    }
 }
 
 func getHintCount() -> (Int,Int,Int) {

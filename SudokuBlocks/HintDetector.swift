@@ -183,7 +183,7 @@ func getTypeThreeHints() -> [Hint]? {
                     if set1 == set3 { continue }
                     if set2 == set3 { continue }
                     
-                    Swift.print("Got 3:  \(set1) \(set2) \(set3)")
+                    // Swift.print("Got 3:  \(set1) \(set2) \(set3)")
                     if Set(set1.union(set2).union(set3)).count != 3 {
                         continue
                     }

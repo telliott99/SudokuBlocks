@@ -59,6 +59,8 @@ class MainWindowController: NSWindowController {
         if checkbox.state == NSOnState {
             applyConstraintsForFilledSquaresOnce()
         }
+        hideHints()
+
     }
     
     @IBAction func undo(sender: AnyObject) {
@@ -83,6 +85,7 @@ class MainWindowController: NSWindowController {
     }
     
     @IBAction func showHints(sender: AnyObject) {
+        setHintStatus(false)
         label1.textColor = colorForHintType(.one)
         label2.textColor = colorForHintType(.two)
         label3.textColor = colorForHintType(.three)

@@ -45,16 +45,17 @@ func savePuzzleDataToFile(s: String) {
     sp.directoryURL = NSURL(string: d)
     sp.allowedFileTypes = ["txt"]
 
-    sp.runModal()
-    // op.orderOut()
-    // op.URL contains the user's choice
-    if sp.URL == nil {
-        return
+    //sp.runModal()
+    
+    sp.beginWithCompletionHandler{ (result: Int) -> Void in
+        Swift.print(result)
+        if result == NSFileHandlingPanelOKButton {
+            let exportedFileURL = sp.URL!
+            do { try s.writeToURL(exportedFileURL, atomically:true,
+                encoding:NSUTF8StringEncoding) }
+            catch {  }
+        }
     }
-    let path = sp.URL!
-    do { try s.writeToURL(path, atomically:true,
-        encoding:NSUTF8StringEncoding) }
-    catch {  }
 }
 
 /*

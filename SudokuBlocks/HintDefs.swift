@@ -75,7 +75,10 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
     var hashValue: Int {
         get {
             let keyArray = orderedKeyArray()
-            return keyArray.indexOf(key)! * 10 + iSet.first!
+            if let i = keyArray.indexOf(key) {
+                return i * 10 + iSet.first!
+            }
+            else { return 0 }
         }
     }
 }
