@@ -35,7 +35,7 @@ func findRepeatedTwos(neighbors: [String]) -> [KeyArray]? {
         */
         
         // rewrite more idiomatically
-        let t = neighbors.filter( { set == dataD[$0] } )
+        let t = neighbors.filter( { set == currentPuzzle.dataD[$0] } )
         // results.append(KeyPair(first:t[0], second:t[1]))
         results.append(t)
     }
@@ -60,6 +60,7 @@ so the last one cannot be {1}
 func getTypeOneHints() -> [Hint]? {
     // return a set of Hint objects if we find any
     var hints = [Hint]()
+    let dataD = currentPuzzle.dataD
     
     for group in boxes + rows + cols {
         if let results = findRepeatedTwos(group) {
@@ -119,6 +120,7 @@ for a box row or col
 func getTypeTwoHints() -> [Hint]? {
     // return a set of Hint objects if we find any
     var hints = [Hint]()
+    let dataD = currentPuzzle.dataD
     
     for group in boxes + rows + cols {
         // gather all the values
@@ -166,6 +168,7 @@ so any other occurrence of 1, 2, or 3 deserves a hint
 func getTypeThreeHints() -> [Hint]? {
     // return an array of Hint objects if we find any
     var hints = [Hint]()
+    let dataD = currentPuzzle.dataD
     
     for group in boxes + rows + cols {
         
@@ -206,9 +209,15 @@ func getTypeThreeHints() -> [Hint]? {
                 if !set.intersect(set2).isEmpty {
                     
                     // find the keys for the sets in the cycle list
-                    let k1 = getKeyForValue(group, value: cycleList[0])!
-                    let k2 = getKeyForValue(group, value: cycleList[1])!
-                    let k3 = getKeyForValue(group, value: cycleList[2])!
+                    let k1 = getKeyForValue(group,
+                        value: cycleList[0],
+                        dataD: dataD)!
+                    let k2 = getKeyForValue(group,
+                        value: cycleList[1],
+                        dataD: dataD)!
+                    let k3 = getKeyForValue(group,
+                        value: cycleList[2],
+                        dataD: dataD)!
                     
                     let h = Hint(key: key, iSet: set,
                         keyArray: [k1,k2,k3],

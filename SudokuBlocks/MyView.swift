@@ -1,7 +1,7 @@
 import Cocoa
 
 class MyView: NSView {
-        
+    
     override func drawRect(dirtyRect: NSRect) {
         let backgroundColor = NSColor.whiteColor()
         backgroundColor.set()
@@ -16,9 +16,9 @@ class MyView: NSView {
     
     // detect the clicks that affect blocks
     override func mouseDown(theEvent: NSEvent) {
-        setHintStatus(false)
+        setHintActive(false)
                 
-        let f = commandKeyPressed(theEvent)
+        let f = commandKeyWasPressed(theEvent)
         
         let q = theEvent.locationInWindow
         let p = self.convertPoint(q, fromView:self.superview)
@@ -35,40 +35,74 @@ class MyView: NSView {
     
     // we do this to get key events
     override var acceptsFirstResponder: Bool { return true }
-
+    
     // detect CMD+z
     @IBAction override func keyDown(theEvent: NSEvent) {
+        
         super.keyDown(theEvent)
-        // Swift.print(theEvent.keyCode)
-        if theEvent.keyCode == 6 && commandKeyPressed(theEvent) {
+        Swift.print(theEvent.keyCode)
+        
+        if theEvent.keyCode == 6 && commandKeyWasPressed(theEvent) {
             undoLastMove()
             refreshScreen()
+            return
         }
-        if theEvent.keyCode == 123 {
-            // left arrow
-            if hintList.count == 0 {
-                return
+        
+        let n = hintList.count
+
+        
+        if theEvent.keyCode == 49 {
+            calculateHintsForThisPosition()
+            Swift.print("spacebar handler, \(hintList.count) hints, active: \(hintActive)")
+            
+            if hintActive {
+                let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+                if let mwc = appDelegate.mainWindowController as MainWindowController! {
+                    Swift.print("got mwc")
+                    mwc.hideHints(self)
+                }
             }
+            else {
+                let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+                if let mwc = appDelegate.mainWindowController as MainWindowController! {
+                    Swift.print("got mwc")
+                    mwc.showHints()
+                }
+            }
+            refreshScreen()
+            return
+        }
+
+        if n == 0 {
+            Swift.print("no hintList")
+            return
+        }
+        
+        if theEvent.keyCode == 123 {
+            Swift.print("left arrow handler")
+            // left arrow
             if selectedHint == 0 {
-                selectedHint = hintList.count - 1
+                selectedHint = n - 1
             }
             else {
                 selectedHint -= 1
             }
             refreshScreen()
+            return
         }
+        
         if theEvent.keyCode == 124 {
+            Swift.print("right arrow handler")
             // right arrow
-            if hintList.count == 0 {
-                return
-            }
-            if selectedHint == hintList.count - 1 {
+            if selectedHint == n - 1 {
                 selectedHint = 0
             }
             else {
                 selectedHint += 1
             }
             refreshScreen()
+            return
         }
     }
+
 }

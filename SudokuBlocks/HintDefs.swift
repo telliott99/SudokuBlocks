@@ -4,7 +4,7 @@ func colorForHintType(t: HintType) -> NSColor {
     switch  t {
     case .one:  return blue
     case .two: return red
-    case .three: return clover
+    case .three: return plum
     }
 }
 
@@ -14,8 +14,6 @@ convenience method
 count how many times
 a particular IntSet is found in an array
 */
-
-var hintList = [Hint]()
 
 // count the number of elements of any Equatable Type
 extension Array {

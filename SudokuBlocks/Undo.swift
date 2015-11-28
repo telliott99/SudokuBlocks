@@ -22,6 +22,8 @@ we only use it if MoveType is a substitution
 */
 
 func isLegalMove(key: String, st: Set<Int>) -> Bool {
+    let dataD = currentPuzzle.dataD
+    
     // it is proposed to set dataD[key] = st
     // check for conflicts
     // for now, don't be fancy
@@ -42,6 +44,7 @@ func isLegalMove(key: String, st: Set<Int>) -> Bool {
 }
 
 func getAllFilledSquares()-> [String] {
+    let dataD = currentPuzzle.dataD
     var a = [String]()
     for key in dataD.keys {
         if dataD[key]!.count == 1 {
@@ -57,6 +60,7 @@ typealias Move = (Int, MoveType, [String], Set<Int>)
 var moveL = [(Int, MoveType, [String], Set<Int>)] ()
 
 func undoLastMove() {
+    var dataD = currentPuzzle.dataD
     if moveL.count == 0 {
         return
     }
@@ -87,4 +91,5 @@ func undoLastMove() {
         let key = string_arr.first!
         dataD[key] = int_set
     }
+    currentPuzzle.dataD = dataD
 }

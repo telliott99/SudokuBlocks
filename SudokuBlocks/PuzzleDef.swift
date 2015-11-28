@@ -2,13 +2,19 @@ import Foundation
 
 /*
 major refactoring
-not implemented yet
 */
+
+var currentPuzzle = Puzzle(
+    title: String(),
+    text: String(),
+    start:DataSet(),
+    dataD:DataSet() )
 
 struct Puzzle {
     let title: String
-    let initialText: String
-    var dataD: [String:Set<Int>]
+    let text: String
+    let start: DataSet
+    var dataD: DataSet
     var description: String {
         get {
             return getCurrentStateAsString()

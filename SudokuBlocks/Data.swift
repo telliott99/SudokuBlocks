@@ -21,17 +21,9 @@ Array(s).sortInPlace()
 typealias IntSet = Set<Int>
 typealias DataSet = [String:IntSet]
 
-var dataD = DataSet()
 var initialState = DataSet()
 
 let validChars = Set("0123456789.".characters)
-
-func getCurrentData() -> DataSet {
-    if dataD.isEmpty {
-        dataD = constructZeroedDataDict()
-    }
-    return dataD
-}
 
 func constructZeroedDataDict() -> DataSet {
     // mostly, we will count starting from 1
@@ -47,22 +39,24 @@ func constructZeroedDataDict() -> DataSet {
 func getIntSetsForKeyArray(arr: [String]) -> [IntSet] {
     var result = [IntSet]()
     for key in arr {
-        let value = dataD[key]!
+        let value = currentPuzzle.dataD[key]!
         result.append(value)
         }
     return result
 }
 
 
-func constructNewPuzzle(s: String) -> DataSet? {
-    let index = s.characters.startIndex
-    dataD = constructZeroedDataDict()
-    
-    // want to enumerate but we need an "index", it's awkward
+func convertStringToDataSet(s: String) -> DataSet? {
+    let s2 = removeNewlinesFromPuzzleString(s)
+    let sc = s2.characters
+    let index = sc.startIndex
+    var dataD = constructZeroedDataDict()
+
+    // want to enumerate but we need an "Index", it's awkward
     
     for (i,key) in orderedKeyArray().enumerate() {
         // data from the input string
-        let v = s.characters[index.advancedBy(i)]
+        let v = sc[index.advancedBy(i)]
         
         // we accept "." or "0"
         // the Set<Int> is already good in this case

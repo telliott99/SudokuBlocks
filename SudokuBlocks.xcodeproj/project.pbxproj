@@ -14,6 +14,7 @@
 		75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A661BF82C5C00F461D6 /* Mutators.swift */; };
 		756A58911C08FBFA00545250 /* TextWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A588F1C08FBFA00545250 /* TextWindowController.swift */; };
 		756A58921C08FBFA00545250 /* TextWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756A58901C08FBFA00545250 /* TextWindowController.xib */; };
+		756C07271C0A15890045826B /* AppStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C07261C0A15890045826B /* AppStuff.swift */; };
 		7573691B1BF53B640031DDCD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573691A1BF53B640031DDCD /* Data.swift */; };
 		757FED281C06199C0052484D /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FED271C06199C0052484D /* Alerts.swift */; };
 		758EB63C1C09F24300F8660F /* PuzzleDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758EB63B1C09F24300F8660F /* PuzzleDef.swift */; };
@@ -62,6 +63,7 @@
 		75179A661BF82C5C00F461D6 /* Mutators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutators.swift; sourceTree = "<group>"; };
 		756A588F1C08FBFA00545250 /* TextWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextWindowController.swift; sourceTree = "<group>"; };
 		756A58901C08FBFA00545250 /* TextWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextWindowController.xib; sourceTree = "<group>"; };
+		756C07261C0A15890045826B /* AppStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStuff.swift; sourceTree = "<group>"; };
 		7573691A1BF53B640031DDCD /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		757FED271C06199C0052484D /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		758EB63B1C09F24300F8660F /* PuzzleDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleDef.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				757FED271C06199C0052484D /* Alerts.swift */,
+				756C07261C0A15890045826B /* AppStuff.swift */,
 				75C465121BF3945200436C0F /* AppDelegate.swift */,
 				750129A21BF9D9F6006D8586 /* Breakpoints.swift */,
 				75C587E61BF5750B00AEDDAC /* Colors.swift */,
@@ -337,6 +340,7 @@
 				75DEFE5A1C06067D003ECC01 /* HintHelper.swift in Sources */,
 				75F9648F1C05222900130A73 /* EnumTypes.swift in Sources */,
 				75DFCE9C1BF6683400210640 /* Files.swift in Sources */,
+				756C07271C0A15890045826B /* AppStuff.swift in Sources */,
 				75B178531C01F48B00A79A19 /* Neighbors.swift in Sources */,
 				75C4653D1BF394AA00436C0F /* MainWindowController.swift in Sources */,
 				7573691B1BF53B640031DDCD /* Data.swift in Sources */,

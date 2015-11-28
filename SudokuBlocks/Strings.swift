@@ -23,7 +23,7 @@ func orderedKeyArray() -> [String] {
 
 // given a group of keys and a value, find the key for the value
 
-func getKeyForValue(group: [String], value: IntSet) -> String? {
+func getKeyForValue(group: [String], value: IntSet, dataD: DataSet) -> String? {
     for key in group {
         if dataD[key]! == value {
             return key
@@ -55,22 +55,31 @@ func validatedPuzzleString(s: String) -> String? {
 }
 
 // returns true for success
-func loadPuzzleDataFromString(key: String, value: String) -> Bool {
-    let ns = validatedPuzzleString(value)
+func loadPuzzleDataFromString(title: String, s: String) -> Bool {
+    let ns = validatedPuzzleString(s)
     if ns == nil {
         let _ = runAlert("something wrong with that one")
-        Swift.print(value)
+        Swift.print(s)
         Swift.print(ns)
         return false
     }
-    keyForCurrentPuzzle = key
-    constructNewPuzzle(ns!)
+    
+    let dataD = convertStringToDataSet(s)
+    if dataD == nil { return false }
+    
+    currentPuzzle = Puzzle(
+        title: title,
+        text: s,
+        start: dataD!,
+        dataD: dataD! )
+    
     refreshScreen()
     return true
 }
 
 func getCurrentStateAsString() -> String {
     var arr = [String]()
+    let dataD = currentPuzzle.dataD
     for (i,key) in dataD.keys.sort().enumerate() {
         if i != 0 {
             if (i % 9 == 0) {
@@ -104,5 +113,10 @@ func addNewlinesToPuzzleString(s: String) -> String {
         current = current.substringFromIndex(i)
     }
     return s
+}
+
+func removeNewlinesFromPuzzleString(s: String) -> String {
+    let r = s.characters.split() {$0 == "\n"}.map{String($0)}
+    return r.joinWithSeparator("")
 }
 

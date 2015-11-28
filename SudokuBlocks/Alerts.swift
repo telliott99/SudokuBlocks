@@ -17,10 +17,11 @@ func runAlert(s: String) -> Bool {
 
 func showHelpAsAlert() {
     var s = ""
-    s += "Click to delete a single value\n"
-    s += "Command-click to select a value\n"
-    s += "Command-z to go back\n"
+    s += "Click to delete a on valeue\n"
+    s += "Command-click to select one value\n"
+    s += "Command-z to go back oen move\n"
     s += "\n"
+    s += "Toggle spacebar to show or hide hints\n"
     s += "Hint types are color-coded\n"
     s += "Arrows cycle through hints\n"
     runAlert(s)

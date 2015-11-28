@@ -7,9 +7,6 @@ let tiny_rectL = constructTinyRects()
 let divL = getBlueDividerRects()
 let lw = CGFloat(6)  // line width
 
-var hintActive = false
-var selectedHint = 0
-
 func drawDividers() {
     NSColor.blueColor().set()
     for r in divL {
@@ -18,7 +15,7 @@ func drawDividers() {
 }
 
 func retrieveAndPlotData() {
-    let dataD = getCurrentData()
+    let dataD = currentPuzzle.dataD
     for key in kL {
         // any Dictionary access returns an Optional
         let r = rectD[key]!

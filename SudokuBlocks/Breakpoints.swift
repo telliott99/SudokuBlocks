@@ -25,6 +25,7 @@ struct Breakpoint {
 }
 
 func addNewBreakpoint() {
+    let dataD = currentPuzzle.dataD
     let b = Breakpoint(arr: moveL, dict: dataD)
     breakPointList.append(b)
     Swift.print("addNewBreakpoint: #\(breakPointList.count)")
@@ -37,7 +38,7 @@ func restoreLastBreakpoint() {
     }
     let bp = breakPointList.removeLast()
     moveL = bp.a
-    dataD = bp.D
+    currentPuzzle.dataD = bp.D
     refreshScreen()
 }
 

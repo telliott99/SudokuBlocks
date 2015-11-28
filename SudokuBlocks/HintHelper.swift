@@ -1,5 +1,9 @@
 import Cocoa
 
+var hintActive = false
+var selectedHint = 0
+var hintList = [Hint]()
+
 func calculateHintsForThisPosition() -> Bool {
     if let hints = getTypeOneHints() {
         hintList += hints
@@ -15,7 +19,7 @@ func calculateHintsForThisPosition() -> Bool {
         return false
     }
     
-    // hintList = removeDuplicateHints(hintList)
+    hintList = removeDuplicateHints(hintList)
     
     hintList.sortInPlace( { $0 < $1 } )
     
@@ -27,11 +31,14 @@ func calculateHintsForThisPosition() -> Bool {
     return true
 }
 
-func setHintStatus(flag: Bool) {
+func setHintActive(flag: Bool) {
     hintActive = flag
     selectedHint = 0
     if !flag {
-        hintList = []
+        hintList = [Hint]()
+    }
+    else {
+        calculateHintsForThisPosition()
     }
 }
 
@@ -48,7 +55,7 @@ func getHintCount() -> (Int,Int,Int) {
         case .three: o += 1
         }
     }
-    // Swift.print("hints: \(m) \(n) \(o)")
+    Swift.print("hints: \(m) \(n) \(o)")
     return (m,n,o)
 }
 

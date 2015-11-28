@@ -17,6 +17,7 @@ let wc = appDelegate.mainWindowController
 
 func respondToClick(key: String, point: NSPoint,
                     rect: CGRect, cmd: Bool) {
+    let dataD = currentPuzzle.dataD
     let x = point.x - rect.origin.x
     let y = point.y - rect.origin.y
     let n = indexOfTinyRectForPoint(x, y:y) + 1
@@ -47,7 +48,7 @@ func respondToClick(key: String, point: NSPoint,
         runAlert("There appears to be a problem with that move.")
         return
     }
-    dataD[key] = tmp
+    currentPuzzle.dataD[key] = tmp
                         
     calculateHintsForThisPosition()
     wc!.hideHints()
@@ -65,6 +66,7 @@ func respondToClick(key: String, point: NSPoint,
 // returns the keys for squares that are changed
 
 func applyConstraintsForOneFilledSquare(key: String) -> [String] {
+    var dataD = currentPuzzle.dataD
     
     let st = dataD[key]!
     var newFilledSquares = [String]()
@@ -100,6 +102,7 @@ func applyConstraintsForOneFilledSquare(key: String) -> [String] {
     if a2.count != 0 {
         moveL.append( (n, move, a2, nullSet ))
     }
+    currentPuzzle.dataD = dataD
     return newFilledSquares
 }
 
@@ -124,7 +127,7 @@ func applyConstraintsForFilledSquaresExhaustively() {
 
 func resetPuzzle() {
     Swift.print("reset")
-    dataD = initialState
+    currentPuzzle.dataD = currentPuzzle.start
     applyConstraintsForFilledSquaresOnce()
     refreshScreen()
 }

@@ -21,14 +21,14 @@ class TextWindowController: NSWindowController {
         let s = textField.stringValue
         // print("textField.stringValue: \(s)")
         
-        let result = loadPuzzleDataFromString("", value: s)
+        let result = loadPuzzleDataFromString("", s: s)
         if result {
             labelTextField.stringValue = "custom puzzle"
             
             if let mwc = self.mainWindowController as! MainWindowController! {
                 if let w = mwc.window {
                     mwc.requestClean(self)
-                    mwc.changeLabelTextField(labelTextField.stringValue)
+                    mwc.resetLabelTextField()
                     w.orderFront(self)
                     w.display()
                 }
@@ -43,14 +43,14 @@ class TextWindowController: NSWindowController {
         // needed so that textField != nil etc.
         self.window!.display()
         
-        textField.stringValue = s
-        labelTextField.stringValue = keyForCurrentPuzzle
+        textField.stringValue = String(currentPuzzle)
+        labelTextField.stringValue = currentPuzzle.title
+        unSelectTextField(textField)
         
         if let mwc = self.mainWindowController as! MainWindowController! {
-            mwc.changeLabelTextField(labelTextField.stringValue)
+            mwc.resetLabelTextField()
         }
         
-        unSelectTextField(textField)
 
         if let w = self.window {
             if nil != self.textField {
@@ -73,9 +73,9 @@ class TextWindowController: NSWindowController {
     // shows an alert on failure
     @IBAction func loadFile(sender: AnyObject) {
         if let s = loadFileHandler() {
-            loadPuzzleDataFromString("", value: s)
+            loadPuzzleDataFromString("", s: s)
             if let mwc = self.mainWindowController as! MainWindowController! {
-                mwc.changeLabelTextField("")
+                mwc.resetLabelTextField()
             }
             appDelegate.mainWindowController!.hideHints()
          }

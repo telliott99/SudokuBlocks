@@ -6,6 +6,7 @@ func refreshScreen() {
     
     if let windowController = appDelegate.mainWindowController {
         if let w = windowController.window {
+            // Swift.print("refreshScreen")
             w.display()
         }
     }
@@ -19,7 +20,7 @@ func unSelectTextField(tf: NSTextField) {
     }
 }
 
-func commandKeyPressed(theEvent: NSEvent) -> Bool {
+func commandKeyWasPressed(theEvent: NSEvent) -> Bool {
     /*
     docs aren't particularly clear
     by examining theEvent.modifierFlags.rawValue

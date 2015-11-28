@@ -12,11 +12,14 @@ class MainWindowController: NSWindowController {
     @IBOutlet weak var label3: NSTextField!
     
     let emptyString = ""
-    
+
     override func windowDidLoad() {
         super.windowDidLoad()
         getRandomPuzzle(self)
         // showCurrentState(self)
+        label1.textColor = colorForHintType(.one)
+        label2.textColor = colorForHintType(.two)
+        label3.textColor = colorForHintType(.three)
     }
     
     override var windowNibName: String {
@@ -37,17 +40,23 @@ class MainWindowController: NSWindowController {
     }
         
     @IBAction func getRandomPuzzle(sender: AnyObject) {
-        
         // read popUp
         let a: [Difficulty] = [.easy, .medium, .hard, .evil]
         let level = a[popUp.indexOfSelectedItem]
+        
         let result = getDatabasePuzzle(level)
+        if result == nil { return }
+        let (key, s) = result!
         
-        if (result == nil) { return }
-        let (key, value) = result!
-        loadPuzzleDataFromString(key, value: value)
+        let dataD = convertStringToDataSet(s)
+        if dataD == nil { return }
         
-        changeLabelTextField(key)
+        currentPuzzle = Puzzle(
+            title: key, text: s,
+            start: dataD!,
+            dataD: dataD! )
+        
+        resetLabelTextField()
         if checkbox.state == NSOnState {
             applyConstraintsForFilledSquaresOnce()
         }
@@ -76,22 +85,31 @@ class MainWindowController: NSWindowController {
         hideHints(self)
     }
     
+    func showHints() {
+        showHints(self)
+    }
+    
     @IBAction func showHints(sender: AnyObject) {
-        // setHintStatus(false)
-        label1.textColor = colorForHintType(.one)
-        label2.textColor = colorForHintType(.two)
-        label3.textColor = colorForHintType(.three)
-
-        setHintStatus(true)
-        if !calculateHintsForThisPosition() {
-            setHintStatus(false)
-        }
+        setHintActive(true)
         self.window!.display()
     }
     
+    /*
+    defined in HintHelper
+    func setHintStatus(flag: Bool) {
+        hintActive = flag
+        selectedHint = 0
+        if !flag {
+            hintList = [Hint]()
+        }
+        else {
+            calculateHintsForThisPosition()
+        }
+    }
+    */
+    
     @IBAction func hideHints(sender: AnyObject) {
-        setHintStatus(false)
-        hintList = [Hint]()
+        setHintActive(false)    // in HintHelper, see above
         label1.stringValue = emptyString
         label2.stringValue = emptyString
         label3.stringValue = emptyString
@@ -126,8 +144,7 @@ class MainWindowController: NSWindowController {
         }
     }
     
-    func changeLabelTextField(s: String) {
-        mainWindowLabelTextField.stringValue  = s
+    func resetLabelTextField() {
+        mainWindowLabelTextField.stringValue  = currentPuzzle.title
     }
-
 }
