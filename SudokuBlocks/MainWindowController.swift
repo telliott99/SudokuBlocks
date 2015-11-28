@@ -5,6 +5,7 @@ class MainWindowController: NSWindowController {
     // We know these guys exist!
     @IBOutlet weak var popUp: NSPopUpButton!
     @IBOutlet weak var checkbox: NSButton!
+    @IBOutlet weak var mainWindowLabelTextField: NSTextField!
     
     @IBOutlet weak var label1: NSTextField!
     @IBOutlet weak var label2: NSTextField!
@@ -20,16 +21,6 @@ class MainWindowController: NSWindowController {
     
     override var windowNibName: String {
         return "MainWindowController"
-    }
-
-    // should show an alert on failure
-        
-    @IBAction func loadFile(sender: AnyObject) {
-        if let s = loadFileHandler() {
-            loadPuzzleDataFromString("", value: s)
-            hideHints(self)
-            // showCurrentState(self)
-        }
     }
 
     @IBAction func requestClean(sender: AnyObject) {
@@ -56,11 +47,12 @@ class MainWindowController: NSWindowController {
         let (key, value) = result!
         loadPuzzleDataFromString(key, value: value)
         
+        changeLabelTextField(key)
         if checkbox.state == NSOnState {
             applyConstraintsForFilledSquaresOnce()
         }
         hideHints()
-
+        
     }
     
     @IBAction func undo(sender: AnyObject) {
@@ -85,13 +77,15 @@ class MainWindowController: NSWindowController {
     }
     
     @IBAction func showHints(sender: AnyObject) {
-        setHintStatus(false)
+        // setHintStatus(false)
         label1.textColor = colorForHintType(.one)
         label2.textColor = colorForHintType(.two)
         label3.textColor = colorForHintType(.three)
 
         setHintStatus(true)
-        calculateHintsForThisPosition()
+        if !calculateHintsForThisPosition() {
+            setHintStatus(false)
+        }
         self.window!.display()
     }
     
@@ -130,6 +124,10 @@ class MainWindowController: NSWindowController {
                 w.orderOut(self)
             }
         }
+    }
+    
+    func changeLabelTextField(s: String) {
+        mainWindowLabelTextField.stringValue  = s
     }
 
 }

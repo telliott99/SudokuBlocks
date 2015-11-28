@@ -16,6 +16,7 @@
 		756A58921C08FBFA00545250 /* TextWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 756A58901C08FBFA00545250 /* TextWindowController.xib */; };
 		7573691B1BF53B640031DDCD /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573691A1BF53B640031DDCD /* Data.swift */; };
 		757FED281C06199C0052484D /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FED271C06199C0052484D /* Alerts.swift */; };
+		758EB63C1C09F24300F8660F /* PuzzleDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758EB63B1C09F24300F8660F /* PuzzleDef.swift */; };
 		75A665811BF6BB4B00FF7FFC /* db.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75A665801BF6BB4B00FF7FFC /* db.plist */; };
 		75B178511C01F34700A79A19 /* HintDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B178501C01F34700A79A19 /* HintDetector.swift */; };
 		75B178531C01F48B00A79A19 /* Neighbors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B178521C01F48B00A79A19 /* Neighbors.swift */; };
@@ -63,6 +64,7 @@
 		756A58901C08FBFA00545250 /* TextWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextWindowController.xib; sourceTree = "<group>"; };
 		7573691A1BF53B640031DDCD /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		757FED271C06199C0052484D /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		758EB63B1C09F24300F8660F /* PuzzleDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleDef.swift; sourceTree = "<group>"; };
 		75A665801BF6BB4B00FF7FFC /* db.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = db.plist; sourceTree = "<group>"; };
 		75B178501C01F34700A79A19 /* HintDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintDetector.swift; sourceTree = "<group>"; };
 		75B178521C01F48B00A79A19 /* Neighbors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neighbors.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				75B178521C01F48B00A79A19 /* Neighbors.swift */,
 				7507A9131BF535F8009D3EEF /* Plotter.swift */,
 				751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */,
+				758EB63B1C09F24300F8660F /* PuzzleDef.swift */,
 				75E6A6061BF66FB20038D3AC /* ScreenUtilities.swift */,
 				75E6A6041BF66DA10038D3AC /* Strings.swift */,
 				756A588F1C08FBFA00545250 /* TextWindowController.swift */,
@@ -330,6 +333,7 @@
 				75C465401BF3950100436C0F /* MyView.swift in Sources */,
 				75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */,
 				750129A31BF9D9F6006D8586 /* Breakpoints.swift in Sources */,
+				758EB63C1C09F24300F8660F /* PuzzleDef.swift in Sources */,
 				75DEFE5A1C06067D003ECC01 /* HintHelper.swift in Sources */,
 				75F9648F1C05222900130A73 /* EnumTypes.swift in Sources */,
 				75DFCE9C1BF6683400210640 /* Files.swift in Sources */,

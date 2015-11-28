@@ -32,17 +32,6 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-0V-N0v">
-                        <rect key="frame" x="206" y="201" width="162" height="32"/>
-                        <animations/>
-                        <buttonCell key="cell" type="push" title="Load Text As Puzzle" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kAQ-6U-xG7">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <connections>
-                                <action selector="loadTextAsPuzzle:" target="-2" id="xeU-ij-raF"/>
-                            </connections>
-                        </buttonCell>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqD-UT-ksJ">
                         <rect key="frame" x="181" y="22" width="118" height="17"/>
                         <animations/>
@@ -52,8 +41,30 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y1z-JI-o6p">
+                        <rect key="frame" x="253" y="118" width="173" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Load Puzzle From File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ha5-LI-gCT">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="loadFile:" target="-2" id="mCl-KE-5wc"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lbe-0V-N0v">
+                        <rect key="frame" x="258" y="201" width="162" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Load Text As Puzzle" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kAQ-6U-xG7">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <connections>
+                                <action selector="loadTextAsPuzzle:" target="-2" id="xeU-ij-raF"/>
+                            </connections>
+                        </buttonCell>
+                    </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9MK-hU-neQ">
-                        <rect key="frame" x="230" y="161" width="113" height="32"/>
+                        <rect key="frame" x="282" y="161" width="113" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Save To File" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RdM-vV-BPw">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

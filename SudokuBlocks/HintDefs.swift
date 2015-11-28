@@ -74,11 +74,20 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
     }
     var hashValue: Int {
         get {
-            let keyArray = orderedKeyArray()
-            if let i = keyArray.indexOf(key) {
-                return i * 10 + iSet.first!
+            if let i = orderedKeyArray().indexOf(key) {
+                /*
+                var ret = i*10
+                switch hintType {
+                case .one:  ret += 1
+                case .two:  ret += 2
+                case .three:  ret += 3
+                }
+                return ret
+                */
+                return i
             }
-            else { return 0 }
+            Swift.print("no index value for: \(self)")
+            return 0
         }
     }
 }

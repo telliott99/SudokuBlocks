@@ -5,12 +5,12 @@ class TextWindowController: NSWindowController {
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var labelTextField: NSTextField!
     
-    @IBOutlet weak var appDelegate: NSApplicationDelegate!
+    weak var mainWindowController: NSWindowController!
 
     override func windowDidLoad() {
         super.windowDidLoad()
-
-        // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        self.mainWindowController = appDelegate.mainWindowController
     }
     
     override var windowNibName: String {
@@ -24,13 +24,11 @@ class TextWindowController: NSWindowController {
         let result = loadPuzzleDataFromString("", value: s)
         if result {
             labelTextField.stringValue = "custom puzzle"
-            let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
             
-            if let mwc = appDelegate.mainWindowController {
+            if let mwc = self.mainWindowController as! MainWindowController! {
                 if let w = mwc.window {
-                    mwc.hideHints(self)
-                    showCurrentState()
-                    
+                    mwc.requestClean(self)
+                    mwc.changeLabelTextField(labelTextField.stringValue)
                     w.orderFront(self)
                     w.display()
                 }
@@ -39,19 +37,18 @@ class TextWindowController: NSWindowController {
     }
     
     func showCurrentState() {
-        let s = getCurrentStateAsString()
-        Swift.print("showCurrentState \(s) \(self.textField)")
-        
-        let s2 = getCurrentStateAsString()  // has newlines
-        
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        let s = getCurrentStateAsString()  // has newlines
         appDelegate.mainWindowController!.hideHints()
         
         // needed so that textField != nil etc.
         self.window!.display()
         
-        textField.stringValue = s2
+        textField.stringValue = s
         labelTextField.stringValue = keyForCurrentPuzzle
+        
+        if let mwc = self.mainWindowController as! MainWindowController! {
+            mwc.changeLabelTextField(labelTextField.stringValue)
+        }
         
         unSelectTextField(textField)
 
@@ -68,6 +65,20 @@ class TextWindowController: NSWindowController {
     @IBAction func writeToFile(sender: AnyObject) {
         let s = getCurrentStateAsString()
         savePuzzleDataToFile(s)
+        if let w = self.window {
+            w.orderOut(self)
+            }
     }
    
+    // shows an alert on failure
+    @IBAction func loadFile(sender: AnyObject) {
+        if let s = loadFileHandler() {
+            loadPuzzleDataFromString("", value: s)
+            if let mwc = self.mainWindowController as! MainWindowController! {
+                mwc.changeLabelTextField("")
+            }
+            appDelegate.mainWindowController!.hideHints()
+         }
+    }
+
 }

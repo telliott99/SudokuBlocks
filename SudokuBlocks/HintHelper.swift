@@ -1,6 +1,6 @@
 import Cocoa
 
-func calculateHintsForThisPosition() {
+func calculateHintsForThisPosition() -> Bool {
     if let hints = getTypeOneHints() {
         hintList += hints
     }
@@ -12,16 +12,19 @@ func calculateHintsForThisPosition() {
     }
     if hintList.count == 0 {
         runAlert("no hints right now")
+        return false
     }
     
     // hintList = removeDuplicateHints(hintList)
     
     hintList.sortInPlace( { $0 < $1 } )
+    
     /*
     for h in hintList {
         Swift.print(h)
     }
     */
+    return true
 }
 
 func setHintStatus(flag: Bool) {

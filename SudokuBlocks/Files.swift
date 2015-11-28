@@ -48,12 +48,12 @@ func savePuzzleDataToFile(s: String) {
     //sp.runModal()
     
     sp.beginWithCompletionHandler{ (result: Int) -> Void in
-        Swift.print(result)
+        // Swift.print(result)
         if result == NSFileHandlingPanelOKButton {
             let exportedFileURL = sp.URL!
             do { try s.writeToURL(exportedFileURL, atomically:true,
                 encoding:NSUTF8StringEncoding) }
-            catch {  }
+            catch { runAlert("Unable to save") }
         }
     }
 }

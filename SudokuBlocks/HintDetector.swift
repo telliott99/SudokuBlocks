@@ -57,7 +57,7 @@ so the last one cannot be {1}
 
 */
 
-func getTypeOneHints() -> Set<Hint>? {
+func getTypeOneHints() -> [Hint]? {
     // return a set of Hint objects if we find any
     var hints = [Hint]()
     
@@ -106,7 +106,7 @@ func getTypeOneHints() -> Set<Hint>? {
     if hints.count == 0 {
         return nil
     }
-    return Set(hints)
+    return Array(Set(hints))
 }
 
 /*
@@ -116,7 +116,7 @@ the only one of its type
 for a box row or col
 */
 
-func getTypeTwoHints() -> Set<Hint>? {
+func getTypeTwoHints() -> [Hint]? {
     // return a set of Hint objects if we find any
     var hints = [Hint]()
     
@@ -152,7 +152,7 @@ func getTypeTwoHints() -> Set<Hint>? {
             }
         }
     }
-    return Set(hints)
+    return Array(Set(hints))
 }
 
 
@@ -220,7 +220,7 @@ func getTypeThreeHints() -> [Hint]? {
             }
         }
     }
-    return hints
+    return Array(Set(hints))
 }
 
 

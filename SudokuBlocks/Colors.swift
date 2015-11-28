@@ -34,6 +34,8 @@ let clover = NSColor(netHex: 0x008000)
 let cyan = NSColor.cyanColor()
 let eggplant = NSColor(netHex: 0x400080)
 let green = NSColor.greenColor()
+let lavender = NSColor(netHex: 0xCC66FF)
+let lightSalmon = NSColor(netHex: 0xFFB080)
 let lime = NSColor(netHex: 0x80FF00)
 let magenta = NSColor.magentaColor()
 let maroon = NSColor(netHex: 0x800040)
@@ -42,7 +44,7 @@ let purple = NSColor.purpleColor()
 let red = NSColor.redColor()
 let salmon = NSColor(netHex: 0xFF6666)
 let silver = NSColor(netHex: 0xCCCCCC)
-let lightSalmon = NSColor(netHex: 0xFFB080)
+let tangerine = NSColor(netHex: 0xFF8000)
 let turquoise = NSColor(netHex: 0x00FFFF)
 
 
@@ -52,7 +54,7 @@ func constructColorList() -> [NSColor] {
         blue,
         banana,
         turquoise,
-        lightSalmon,
+        tangerine,
         purple,
         black,
         magenta,
