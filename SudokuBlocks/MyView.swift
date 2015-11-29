@@ -49,23 +49,22 @@ class MyView: NSView {
         }
         
         let n = hintList.count
-
         
         if theEvent.keyCode == 49 {
             calculateHintsForThisPosition()
-            Swift.print("spacebar handler, \(hintList.count) hints, active: \(hintActive)")
+            // Swift.print("spacebar handler, \(hintList.count) hints, active: \(hintActive)")
             
             if hintActive {
+                // couldn't figure out yet how to save this reference
+                
                 let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
                 if let mwc = appDelegate.mainWindowController as MainWindowController! {
-                    Swift.print("got mwc")
                     mwc.hideHints(self)
                 }
             }
             else {
                 let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
                 if let mwc = appDelegate.mainWindowController as MainWindowController! {
-                    Swift.print("got mwc")
                     mwc.showHints()
                 }
             }
@@ -79,7 +78,7 @@ class MyView: NSView {
         }
         
         if theEvent.keyCode == 123 {
-            Swift.print("left arrow handler")
+            // Swift.print("left arrow handler")
             // left arrow
             if selectedHint == 0 {
                 selectedHint = n - 1
@@ -92,7 +91,7 @@ class MyView: NSView {
         }
         
         if theEvent.keyCode == 124 {
-            Swift.print("right arrow handler")
+            // Swift.print("right arrow handler")
             // right arrow
             if selectedHint == n - 1 {
                 selectedHint = 0

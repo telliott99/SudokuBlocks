@@ -8,11 +8,11 @@ The advantage of using a set to hold the data:
 s.remove(1) is only for sets
 s.contains(1) is for both arrays and sets
 
-init syntax:
+set init syntax:
 s = Set(1..<10) or 
 s = Set([1,2,3])
 
-When necessary to convert to array:
+When necessary to convert to sorted array:
 a = Array(s).sort()
 or
 Array(s).sortInPlace()
@@ -20,8 +20,6 @@ Array(s).sortInPlace()
 
 typealias IntSet = Set<Int>
 typealias DataSet = [String:IntSet]
-
-var initialState = DataSet()
 
 let validChars = Set("0123456789.".characters)
 
@@ -79,6 +77,5 @@ func convertStringToDataSet(s: String) -> DataSet? {
         dataD[key] = Set([n])
     }
     
-    initialState = dataD
     return dataD
 }

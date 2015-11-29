@@ -3,8 +3,6 @@ import Foundation
 // finding the "neighbors" for a key
 // same row, col or 3 x 3 box
 
-// crude, but effective
-
 let boxes = [
     ["A1","A2","A3","B1","B2","B3","C1","C2", "C3"],
     ["A4","A5","A6","B4","B5","B6","C4","C5", "C6"],
@@ -15,8 +13,6 @@ let boxes = [
     ["G1","G2","G3","H1","H2","H3","I1","I2", "I3"],
     ["G4","G5","G6","H4","H5","H6","I4","I5", "I6"],
     ["G7","G8","G9","H7","H8","H9","I7","I8", "I9"] ]
-
-
 
 func arrayForKey(key: String, arrayOfArrays: [[String]]) -> [String]? {
     for arr in arrayOfArrays {
@@ -33,7 +29,6 @@ func sameBoxForKey(key: String) -> [String] {
     let box = arrayForKey(key, arrayOfArrays: boxes)
     return box!
 }
-
 
 /*
 not as stupid as it looks

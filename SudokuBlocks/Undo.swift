@@ -66,7 +66,7 @@ func undoLastMove() {
     }
     
     let m = moveL.removeLast()
-    Swift.print("undo \(m)")
+    // Swift.print("undo \(m)")
     let (n, move, string_arr, int_set) = m
     var tmp: Set<Int>
     

@@ -5,12 +5,8 @@ class TextWindowController: NSWindowController {
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var labelTextField: NSTextField!
     
-    weak var mainWindowController: NSWindowController!
-
     override func windowDidLoad() {
         super.windowDidLoad()
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        self.mainWindowController = appDelegate.mainWindowController
     }
     
     override var windowNibName: String {
@@ -25,19 +21,18 @@ class TextWindowController: NSWindowController {
         if result {
             labelTextField.stringValue = "custom puzzle"
             
-            if let mwc = self.mainWindowController as! MainWindowController! {
-                if let w = mwc.window {
-                    mwc.requestClean(self)
-                    mwc.resetLabelTextField()
-                    w.orderFront(self)
-                    w.display()
-                }
+            if let w = mainWindowController.window {
+                mainWindowController.requestClean(self)
+                mainWindowController.resetLabelTextField()
+                w.orderFront(self)
+                w.display()
             }
         }
     }
     
     func showCurrentState() {
         let s = getCurrentStateAsString()  // has newlines
+        // appDelegate obtained from Mutators
         appDelegate.mainWindowController!.hideHints()
         
         // needed so that textField != nil etc.
@@ -47,10 +42,7 @@ class TextWindowController: NSWindowController {
         labelTextField.stringValue = currentPuzzle.title
         unSelectTextField(textField)
         
-        if let mwc = self.mainWindowController as! MainWindowController! {
-            mwc.resetLabelTextField()
-        }
-        
+        mainWindowController.resetLabelTextField()
 
         if let w = self.window {
             if nil != self.textField {
@@ -74,10 +66,8 @@ class TextWindowController: NSWindowController {
     @IBAction func loadFile(sender: AnyObject) {
         if let s = loadFileHandler() {
             loadPuzzleDataFromString("", s: s)
-            if let mwc = self.mainWindowController as! MainWindowController! {
-                mwc.resetLabelTextField()
-            }
-            appDelegate.mainWindowController!.hideHints()
+            mainWindowController.resetLabelTextField()
+            mainWindowController.hideHints()
          }
     }
 

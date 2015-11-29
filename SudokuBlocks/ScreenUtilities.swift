@@ -1,19 +1,22 @@
 import Cocoa
 
 // makes refresh available to Swift files
+
 func refreshScreen() {
+    // not sure why, but this one is required
+    // despite the def in Mutators
+    
     let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
     
     if let windowController = appDelegate.mainWindowController {
         if let w = windowController.window {
-            // Swift.print("refreshScreen")
             w.display()
         }
     }
 }
 
 func unSelectTextField(tf: NSTextField) {
-    if let window = NSApplication.sharedApplication().mainWindow {
+    if let window = textWindowController.window {
         let textEditor = window.fieldEditor(true, forObject: tf)!
         let range = NSRange(0..<0)
         textEditor.selectedRange = range

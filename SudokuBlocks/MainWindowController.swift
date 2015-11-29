@@ -93,21 +93,7 @@ class MainWindowController: NSWindowController {
         setHintActive(true)
         self.window!.display()
     }
-    
-    /*
-    defined in HintHelper
-    func setHintStatus(flag: Bool) {
-        hintActive = flag
-        selectedHint = 0
-        if !flag {
-            hintList = [Hint]()
-        }
-        else {
-            calculateHintsForThisPosition()
-        }
-    }
-    */
-    
+        
     @IBAction func hideHints(sender: AnyObject) {
         setHintActive(false)    // in HintHelper, see above
         label1.stringValue = emptyString
@@ -135,12 +121,10 @@ class MainWindowController: NSWindowController {
     }
     
     @IBAction func hideTextWindow(sender: AnyObject) {
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        //let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         
-        if let textWindowController = appDelegate.textWindowController {
-            if let w = textWindowController.window {
-                w.orderOut(self)
-            }
+        if let w = textWindowController.window {
+            w.orderOut(self)
         }
     }
     

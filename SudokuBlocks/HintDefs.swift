@@ -8,7 +8,6 @@ func colorForHintType(t: HintType) -> NSColor {
     }
 }
 
-
 /*
 convenience method
 count how many times
@@ -70,22 +69,17 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
             return "\(key) -> \(sortedISet), type \(self.hintType)"
         }
     }
+    
     var hashValue: Int {
         get {
-            if let i = orderedKeyArray().indexOf(key) {
-                /*
-                var ret = i*10
-                switch hintType {
-                case .one:  ret += 1
-                case .two:  ret += 2
-                case .three:  ret += 3
-                }
-                return ret
-                */
-                return i
+            let ka = orderedKeyArray()
+            var n = ka.indexOf(key)! * 10
+            switch hintType {
+            case .one:  n = 1
+            case .two:  n += 2
+            case .three:  n += 3
             }
-            Swift.print("no index value for: \(self)")
-            return 0
-        }
+            return n
+       }
     }
 }

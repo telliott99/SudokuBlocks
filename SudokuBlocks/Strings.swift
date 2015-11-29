@@ -21,7 +21,8 @@ func orderedKeyArray() -> [String] {
     return kL
 }
 
-// given a group of keys and a value, find the key for the value
+// given a group of keys and a value
+// find the key with that value
 
 func getKeyForValue(group: [String], value: IntSet, dataD: DataSet) -> String? {
     for key in group {
@@ -55,6 +56,7 @@ func validatedPuzzleString(s: String) -> String? {
 }
 
 // returns true for success
+
 func loadPuzzleDataFromString(title: String, s: String) -> Bool {
     let ns = validatedPuzzleString(s)
     if ns == nil {

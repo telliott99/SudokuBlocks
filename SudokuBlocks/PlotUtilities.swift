@@ -38,7 +38,7 @@ func getSizeDict() -> [String:Int] {
 }
 
 
-// accessory array that measures size of x or y from o
+// accessory array that measures distance of x or y from o
 func constructArrayOfSizes() -> [Int] {
     // distance of the origin of the box 
     // closest to the origin is o

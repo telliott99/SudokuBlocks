@@ -6,8 +6,15 @@ this file contains the two functions that modify the dataD
 import Cocoa
 
 let nullSet = Set<Int>()
+
+/*
+This looks a little odd, but it provides acccess to the window controllers 
+from my plain Swift files
+*/
+
 let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-let wc = appDelegate.mainWindowController
+let mainWindowController = appDelegate.mainWindowController!
+let textWindowController = appDelegate.textWindowController!
 
 
 // definition for reference:
@@ -51,19 +58,13 @@ func respondToClick(key: String, point: NSPoint,
     currentPuzzle.dataD[key] = tmp
                         
     calculateHintsForThisPosition()
-    wc!.hideHints()
+    mainWindowController.hideHints()
     refreshScreen()
-                        
-    /* 
-
-    decided not to auto-clean now
-    applyConstraintsForFilledSquare(key)
-    
-    */
 }
 
+
 // this function modifies the dataD
-// returns the keys for squares that are changed
+// returns the keys for squares that were changed
 
 func applyConstraintsForOneFilledSquare(key: String) -> [String] {
     var dataD = currentPuzzle.dataD
@@ -102,6 +103,8 @@ func applyConstraintsForOneFilledSquare(key: String) -> [String] {
     if a2.count != 0 {
         moveL.append( (n, move, a2, nullSet ))
     }
+    
+    // dictionaries are *value* types, copied
     currentPuzzle.dataD = dataD
     return newFilledSquares
 }

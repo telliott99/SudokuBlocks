@@ -43,7 +43,6 @@ func setHintActive(flag: Bool) {
 }
 
 func getHintCount() -> (Int,Int,Int) {
-    // get number of hints of each type
     var m = 0
     var n = 0
     var o = 0
@@ -55,7 +54,7 @@ func getHintCount() -> (Int,Int,Int) {
         case .three: o += 1
         }
     }
-    Swift.print("hints: \(m) \(n) \(o)")
+    // Swift.print("hints: \(m) \(n) \(o)")
     return (m,n,o)
 }
 

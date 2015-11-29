@@ -1,15 +1,26 @@
 import Cocoa
 
-func runAlert(s: String) -> Bool {
+/*
+enum NSAlertStyle : UInt {
+case WarningAlertStyle
+case InformationalAlertStyle
+case CriticalAlertStyle
+}
+*/
+
+func runAlert(s: String, style: NSAlertStyle = .WarningAlertStyle) -> Bool {
     let a: NSAlert = NSAlert()
-    Swift.print(a.window.frame.origin)
+    // Swift.print(a.window.frame.origin)
+    
     a.messageText = s
     //a.informativeText = text
-    a.alertStyle = NSAlertStyle.WarningAlertStyle
+    
+    a.alertStyle = style
     a.addButtonWithTitle("OK")
     //a.addButtonWithTitle("Cancel")
-    let res = a.runModal()
-    if res == NSAlertFirstButtonReturn {
+    
+    let result = a.runModal()
+    if result == NSAlertFirstButtonReturn {
         return true
     }
     return false
@@ -17,12 +28,12 @@ func runAlert(s: String) -> Bool {
 
 func showHelpAsAlert() {
     var s = ""
-    s += "Click to delete a on valeue\n"
+    s += "Click to delete a single value\n"
     s += "Command-click to select one value\n"
-    s += "Command-z to go back oen move\n"
+    s += "Command-z to go back one move\n"
     s += "\n"
-    s += "Toggle spacebar to show or hide hints\n"
+    s += "Press spacebar to show/hide hints\n"
     s += "Hint types are color-coded\n"
     s += "Arrows cycle through hints\n"
-    runAlert(s)
+    runAlert(s, style: .InformationalAlertStyle)
 }
