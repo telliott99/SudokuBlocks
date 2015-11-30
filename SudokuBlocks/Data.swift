@@ -45,7 +45,7 @@ func getIntSetsForKeyArray(arr: [String]) -> [IntSet] {
 
 
 func convertStringToDataSet(s: String) -> DataSet? {
-    let s2 = removeNewlinesFromPuzzleString(s)
+    let s2 = s.withoutNewlines()
     let sc = s2.characters
     let index = sc.startIndex
     var dataD = constructZeroedDataDict()

@@ -28,7 +28,7 @@ func calculateHintsForThisPosition() -> Bool {
         Swift.print(h)
     }
     */
-    return true
+    return hintList.count > 0
 }
 
 func setHintActive(flag: Bool) {

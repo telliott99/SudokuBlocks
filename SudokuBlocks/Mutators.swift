@@ -10,6 +10,8 @@ let nullSet = Set<Int>()
 /*
 This looks a little odd, but it provides acccess to the window controllers 
 from my plain Swift files
+I'm not sure what the right way to do this is...
+probably the window controllers just need to be informed when functions return
 */
 
 let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
@@ -56,9 +58,17 @@ func respondToClick(key: String, point: NSPoint,
         return
     }
     currentPuzzle.dataD[key] = tmp
+      
+    /*
+    let hintsFound = calculateHintsForThisPosition()
+    if !hintsFound {
+        // we just clicked and now there are no more hints
+        mainWindowController.hideHints()
+    }
                         
-    calculateHintsForThisPosition()
     mainWindowController.hideHints()
+    */
+                        
     refreshScreen()
 }
 

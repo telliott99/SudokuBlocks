@@ -16,6 +16,7 @@ class MyView: NSView {
     
     // detect the clicks that affect blocks
     override func mouseDown(theEvent: NSEvent) {
+        // immediately turn off display of hints
         setHintActive(false)
                 
         let f = commandKeyWasPressed(theEvent)
@@ -36,7 +37,7 @@ class MyView: NSView {
     // we do this to get key events
     override var acceptsFirstResponder: Bool { return true }
     
-    // detect CMD+z
+    // detect CMD+z, spacebar and left & right arrows
     @IBAction override func keyDown(theEvent: NSEvent) {
         
         super.keyDown(theEvent)

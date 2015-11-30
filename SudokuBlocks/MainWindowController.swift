@@ -112,6 +112,10 @@ class MainWindowController: NSWindowController {
         showHelpAsAlert()
     }
     
+    @IBAction func showHintHelp(sender: AnyObject) {
+        showHintHelpAsAlert()
+    }
+
     @IBAction func showTextWindow(sender: AnyObject) {
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         

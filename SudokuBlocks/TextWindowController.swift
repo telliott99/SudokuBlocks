@@ -4,6 +4,7 @@ class TextWindowController: NSWindowController {
 
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var labelTextField: NSTextField!
+
     
     override func windowDidLoad() {
         super.windowDidLoad()
