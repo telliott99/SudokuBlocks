@@ -56,7 +56,7 @@ class TextWindowController: NSWindowController {
     }
         
     @IBAction func writeToFile(sender: AnyObject) {
-        let s = currentPuzzle.stringRepresentation()
+        let s = currentPuzzle.fileRepresentation()
         savePuzzleDataToFile(s)
         if let w = self.window {
             w.orderOut(self)

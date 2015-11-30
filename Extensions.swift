@@ -21,7 +21,7 @@ extension Array {
 
 
 extension String {
-    func divide(n: Int) -> [String] {
+    func divideStringIntoChunks(chunkSize n: Int) -> [String] {
         var ret = [String]()
         var current = self
         while true {
@@ -41,14 +41,13 @@ extension String {
         return ret
     }
     
-    /*
-    func joinedByString(sep: String, every n: Int) -> String {
-        let ret = divide(self, n: n)
+    
+    func insertSeparator(sep: String, every n: Int) -> String {
+        let ret = self.divideStringIntoChunks(chunkSize: n)
         return ret.joinWithSeparator(sep)
     }
-    */
     
-    func withoutNewlines() -> String {
+    func stripOccurrencesOfCharacter(c: Character) -> String {
         /*
         get the CharacterView, like an [Character]
         split to chunks on newlines
@@ -59,7 +58,7 @@ extension String {
         so do the conversion for each one with map
         */
         
-        let r = self.characters.split() {$0 == "\n"}.map{String($0)}
+        let r = self.characters.split() {$0 == c }.map{String($0)}
         return r.joinWithSeparator("")
     }
 
