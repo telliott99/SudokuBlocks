@@ -32,7 +32,7 @@ class TextWindowController: NSWindowController {
     }
     
     func showCurrentState() {
-        let s = getCurrentStateAsString()  // has newlines
+        let s = currentPuzzle.stringRepresentation()  // has newlines
         // appDelegate obtained from Mutators
         appDelegate.mainWindowController!.hideHints()
         
@@ -56,7 +56,7 @@ class TextWindowController: NSWindowController {
     }
         
     @IBAction func writeToFile(sender: AnyObject) {
-        let s = getCurrentStateAsString()
+        let s = currentPuzzle.stringRepresentation()
         savePuzzleDataToFile(s)
         if let w = self.window {
             w.orderOut(self)

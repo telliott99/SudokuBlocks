@@ -21,8 +21,6 @@ Array(s).sortInPlace()
 typealias IntSet = Set<Int>
 typealias DataSet = [String:IntSet]
 
-let validChars = Set("0123456789.".characters)
-
 func constructZeroedDataDict() -> DataSet {
     // mostly, we will count starting from 1
     // the cells are [1,2,3,4,5,6,7,8,9] == 1..<10
@@ -33,16 +31,6 @@ func constructZeroedDataDict() -> DataSet {
     }
     return D
 }
-
-func getIntSetsForKeyArray(arr: [String]) -> [IntSet] {
-    var result = [IntSet]()
-    for key in arr {
-        let value = currentPuzzle.dataD[key]!
-        result.append(value)
-        }
-    return result
-}
-
 
 func convertStringToDataSet(s: String) -> DataSet? {
     let s2 = s.withoutNewlines()
