@@ -163,4 +163,13 @@ class MainWindowController: NSWindowController {
         unSelectTextField(mainWindowLabelTextField, controller: self)
         // focusOnPuzzleView()
     }
+    
+    @IBAction func checkPuzzle(sender: AnyObject) {
+        if !currentPuzzle.validate() {
+            runAlert("Found a problem")
+        }
+        else {
+            runAlert("OK: no problems found", style: .InformationalAlertStyle)
+        }
+    }
 }

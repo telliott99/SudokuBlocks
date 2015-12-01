@@ -66,7 +66,17 @@ class TextWindowController: NSWindowController {
     // shows an alert on failure
     @IBAction func loadFile(sender: AnyObject) {
         if let s = loadFileHandler() {
-            loadPuzzleDataFromString("", s: s)
+            let f = loadPuzzleDataFromString("", s: s)
+            if !f {
+                runAlert("Had a problem with that file!")
+                return
+            }
+            if let w = self.window {
+                w.orderOut(self)
+            }
+            if let w = mainWindowController.window {
+                w.display()
+            }
             mainWindowController.resetLabelTextField()
             mainWindowController.hideHints()
          }

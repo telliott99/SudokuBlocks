@@ -117,5 +117,22 @@ extension Puzzle {
     }
 }
 
-
+extension Puzzle {
+    func validate() -> Bool {
+        for group in zones + rows + cols {
+            // get the data for this group as [IntSet]
+            var data = group.map() { currentPuzzle.dataD[$0] }
+            
+            // get all the determined values
+            data = data.filter() { $0!.count == 1 }
+            let arr = data.map() { $0!.first! }
+            
+            if Set(arr).count != arr.count {
+                Swift.print("Found a problem with group: \(group)")
+                return false
+            }
+        }
+        return true
+    }
+}
 

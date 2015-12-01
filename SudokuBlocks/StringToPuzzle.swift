@@ -16,12 +16,13 @@ func validatedPuzzleString(s: String) -> String? {
         }
         a.append(c)
     }
+    // Swift.print("validatedPuzzleString\n \(a)")
     
     if !(a.count == 81) {
         return nil
     }
     
-    let validPuzzleChars = ".123456789".characters
+    let validPuzzleChars = ".0123456789".characters
     if !Set(a).isSubsetOf(validPuzzleChars) {
         return nil
     }

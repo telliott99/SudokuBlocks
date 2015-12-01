@@ -33,7 +33,6 @@ func loadFileHandler() -> String? {
         // runAlert("Unable to load a puzzle from that file!")
         return nil
     }
-    
     let vs = validatedPuzzleString(s)
     return vs
 }
