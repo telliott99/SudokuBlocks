@@ -33,7 +33,10 @@ func constructZeroedDataDict() -> DataSet {
 }
 
 func convertStringToDataSet(s: String) -> DataSet? {
-    let s2 = s.stripOccurrencesOfCharacter("\n")
+    
+    // we must remove spaces (in showing data, we put them there!)
+    // newlines too
+    let s2 = s.stripOccurrencesOfCharactersInList(" \n".characters)
     let sc = s2.characters
     let index = sc.startIndex
     var dataD = constructZeroedDataDict()
@@ -46,6 +49,7 @@ func convertStringToDataSet(s: String) -> DataSet? {
         
         // we accept "." or "0"
         // the Set<Int> is already good in this case
+        
         if (".0".characters.contains(v)) { continue }
         
         // attempt conversion to Int

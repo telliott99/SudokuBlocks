@@ -82,4 +82,10 @@ class TextWindowController: NSWindowController {
          }
     }
 
+    @IBAction func cancel(sender: AnyObject) {
+        if let w = self.window {
+            w.orderOut(self)
+        }
+    }
+
 }

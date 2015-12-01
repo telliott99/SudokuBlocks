@@ -61,8 +61,7 @@ func getTypeOneHints() -> [Hint]? {
     // return a set of Hint objects if we find any
     var hints = [Hint]()
     let dataD = currentPuzzle.dataD
-    
-    for group in zones + rows + cols {
+    for (group,kind) in getAllGroups() {
         if let results = findRepeatedTwos(group) {
             
             for keyArray in results {
@@ -80,8 +79,13 @@ func getTypeOneHints() -> [Hint]? {
                     if repeatedIntSet.isSubsetOf(set) {
                         let iSet = set.subtract(repeatedIntSet)
                         
-                        let h = Hint(key: key, iSet: iSet,
-                            keyArray: keyArray, hintType: .one)
+                        let h = Hint(
+                            key: key,
+                            iSet: iSet,
+                            keyArray: keyArray,
+                            hintType: .one,
+                            affectedGroup: group.sort(),
+                            kind: kind )
                         
                         hints.append(h)
                     }
@@ -94,8 +98,14 @@ func getTypeOneHints() -> [Hint]? {
                             let intersection = set.intersect(repeatedIntSet)
                             let iSet = set.subtract(intersection)
                             
-                            let h = Hint(key: key, iSet: iSet,
-                                keyArray: keyArray, hintType: .one)
+                            let h = Hint(
+                                key: key,
+                                iSet: iSet,
+                                keyArray: keyArray,
+                                hintType: .one,
+                                affectedGroup: group.sort(),
+                                kind: kind)
+                            
                             hints.append(h)
                          }
                     }
@@ -122,7 +132,7 @@ func getTypeTwoHints() -> [Hint]? {
     var hints = [Hint]()
     let dataD = currentPuzzle.dataD
     
-    for group in zones + rows + cols {
+    for (group,kind) in getAllGroups() {
         // gather all the values
         var arr = [Int]()
         for key in group {
@@ -146,8 +156,13 @@ func getTypeTwoHints() -> [Hint]? {
                     let set = Set([value])
                     
                     // this KeyArray is meaningless for .two
-                    let h = Hint(key: key, iSet: set,
-                        keyArray: [] as KeyArray, hintType: .two)
+                    let h = Hint(
+                        key: key,
+                        iSet: set,
+                        keyArray: [] as KeyArray,
+                        hintType: .two,
+                        affectedGroup: group.sort(),
+                        kind: kind)
                     
                     hints.append(h)
                 }
@@ -169,8 +184,7 @@ func getTypeThreeHints() -> [Hint]? {
     // return an array of Hint objects if we find any
     var hints = [Hint]()
     let dataD = currentPuzzle.dataD
-    
-    for group in zones + rows + cols {
+    for (group,kind) in getAllGroups() {
         
         let values : [IntSet] = group.map( { dataD[$0]! } )
         let setsWithTwo = values.filter( { $0.count == 2 } )
@@ -219,9 +233,13 @@ func getTypeThreeHints() -> [Hint]? {
                         value: cycleList[2],
                         dataD: dataD)!
                     
-                    let h = Hint(key: key, iSet: set,
+                    let h = Hint(
+                        key: key,
+                        iSet: set,
                         keyArray: [k1,k2,k3],
-                        hintType: .three)
+                        hintType: .three,
+                        affectedGroup: group.sort(),
+                        kind: kind )
                     
                     hints.append(h)
 

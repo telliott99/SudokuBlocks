@@ -30,3 +30,9 @@ enum HintType {
     case two
     case three
 }
+
+enum GroupType {
+    case row
+    case col
+    case zone
+}

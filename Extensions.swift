@@ -47,7 +47,7 @@ extension String {
         return ret.joinWithSeparator(sep)
     }
     
-    func stripOccurrencesOfCharacter(c: Character) -> String {
+    func stripOccurrencesOfCharactersInList(cL: CharacterView) -> String {
         /*
         get the CharacterView, like an [Character]
         split to chunks on newlines
@@ -58,8 +58,14 @@ extension String {
         so do the conversion for each one with map
         */
         
-        let r = self.characters.split() {$0 == c }.map{String($0)}
-        return r.joinWithSeparator("")
+        var a = [Character]()
+        for c in self.characters {
+            if cL.contains(c) {
+                continue
+            }
+            a.append(c)
+        }
+        return a.map{String($0)}.joinWithSeparator("")
     }
 
 }

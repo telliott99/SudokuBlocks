@@ -1,13 +1,5 @@
 import Cocoa
 
-func colorForHintType(t: HintType) -> NSColor {
-    switch  t {
-    case .one:  return blue
-    case .two: return red
-    case .three: return plum
-    }
-}
-
 func == (lhs: Hint, rhs: Hint) -> Bool {
     if lhs.key != rhs.key { return false }
     if lhs.iSet != rhs.iSet { return false }
@@ -42,6 +34,8 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
     let iSet: IntSet
     let keyArray: [String]
     let hintType: HintType
+    let affectedGroup: [String]
+    let kind: GroupType
     
     var description: String {
         get {

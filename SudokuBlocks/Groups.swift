@@ -82,3 +82,11 @@ func neighborsForKey(key: String) -> [String] {
     a = Array(Set(a)).sort()
     return a
 }
+
+func getAllGroups() -> [ ([String], GroupType) ] {
+    var ret = [ ([String], GroupType) ]()
+    for group in cols { ret.append( (group,.col) ) }
+    for group in rows { ret.append( (group,.row) ) }
+    for group in zones { ret.append( (group,.zone) ) }
+    return ret
+}

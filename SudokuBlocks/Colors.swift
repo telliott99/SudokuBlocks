@@ -1,8 +1,17 @@
 import Cocoa
 
 let outlineColor = mercury
+let hintGroupOutlineColor = steel
 
 let cL = constructColorList()
+
+func colorForHintType(t: HintType) -> NSColor {
+    switch  t {
+    case .one:  return blue
+    case .two: return red
+    case .three: return magenta
+    }
+}
 
 // Not sure what happened to Crayons
 // Found this on the web, see defs below
@@ -33,6 +42,7 @@ let cantaloupe = NSColor(netHex: 0xFFCC66)
 let clover = NSColor(netHex: 0x008000)
 let cyan = NSColor.cyanColor()
 let eggplant = NSColor(netHex: 0x400080)
+let gray = NSColor.darkGrayColor()
 let green = NSColor.greenColor()
 let lavender = NSColor(netHex: 0xCC66FF)
 let lightSalmon = NSColor(netHex: 0xFFB080)
@@ -45,7 +55,9 @@ let purple = NSColor.purpleColor()
 let red = NSColor.redColor()
 let salmon = NSColor(netHex: 0xFF6666)
 let silver = NSColor(netHex: 0xCCCCCC)
+let steel = NSColor(netHex: 0x666666)
 let tangerine = NSColor(netHex: 0xFF8000)
+let teal = NSColor(netHex: 0x008080)
 let turquoise = NSColor(netHex: 0x00FFFF)
 
 

@@ -41,7 +41,7 @@ class MyView: NSView {
     @IBAction override func keyDown(theEvent: NSEvent) {
         
         super.keyDown(theEvent)
-        Swift.print(theEvent.keyCode)
+        //Swift.print(theEvent.keyCode)
         
         if theEvent.keyCode == 6 && commandKeyWasPressed(theEvent) {
             undoLastMove()

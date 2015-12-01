@@ -74,6 +74,20 @@
                             <action selector="loadFile:" target="-2" id="mCl-KE-5wc"/>
                         </connections>
                     </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yh7-Tl-rGL">
+                        <rect key="frame" x="299" y="86" width="82" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b36-st-rlH">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cancel:" target="-2" id="wsh-6u-0ek"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <animations/>
             </view>

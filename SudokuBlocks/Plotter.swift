@@ -3,6 +3,7 @@ import Cocoa
 let rectD = constructRectDict()
 let tiny_rectL = constructTinyRects()
 let divL = getBlueDividerRects()
+
 let lw = CGFloat(6)  // line width
 
 func drawDividers() {
@@ -59,15 +60,38 @@ func plotTinyRects(data: Set<Int>, rect: NSRect, key: String) {
 }
 
 func outlineHintSquares(){
+    let lineWidth = CGFloat(6)
     if hintList.count == 0 {
         return
     }
     let h = hintList[selectedHint]
     let key = h.key
-    let r = rectD[key]!
-    NSBezierPath.setDefaultLineWidth(5)
+    let group = h.affectedGroup
     
-    colorForHintType(h.hintType).set()
-    NSBezierPath.strokeRect(r)
+    // most of this is to put a dashed rect around the group
+    let rectList = group.map() { rectD[$0]! }
+    let xList = rectList.map() { $0.origin.x }.sort()
+    let x1 = xList.first!
+    let x2 = xList.last!
+    
+    let yList = rectList.map() { $0.origin.y }.sort()
+    let y1 = yList.first!
+    let y2 = yList.last!
+    
+    NSBezierPath.setDefaultLineWidth(lineWidth)
+    let o = CGFloat(sizeD["sq"]!)
+    let r = NSMakeRect(x1,y1,x2-x1+o,y2-y1+o)
+    let p = NSBezierPath(rect: r)
+    
+    // this was hard to figure out!
+    let dash_pattern = [CGFloat(15.0), CGFloat(9.0)]
+    p.setLineDash(dash_pattern, count: dash_pattern.count, phase: 20)
+    
+    let col = colorForHintType(h.hintType)
+    col.set()
+    
+    // now finally we show the key square
+    p.stroke()
+    NSBezierPath.strokeRect(rectD[key]!)
 }
 
