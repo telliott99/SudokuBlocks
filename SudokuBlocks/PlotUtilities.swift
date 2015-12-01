@@ -152,22 +152,3 @@ func getBlueDividerRects() -> [NSRect] {
     return a
 }
 
-// buggy
-func surroundWithRect(group: [String], offset:CGFloat = 5.0) -> NSRect {
-    // given a group of keys
-    // construct a rect that surrounds them
-    var minx = CGFloat(0)
-    var miny = CGFloat(0)
-    var maxx = CGFloat(0)
-    var maxy = CGFloat(0)
-    
-    for k in group {
-        let r = rectD[k]!
-        if r.origin.x < minx { minx = r.origin.x }
-        if r.origin.y < minx { miny = r.origin.y }
-        if r.origin.x + r.width > maxx  { maxx = r.origin.x + r.width }
-        if r.origin.y + r.height > maxy  { maxy = r.origin.y + r.height }
-        
-    }
-    return NSMakeRect(minx-offset,miny-offset,maxx+offset,maxy+offset)
-}
