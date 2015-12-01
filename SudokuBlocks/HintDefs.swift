@@ -42,6 +42,7 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
     let iSet: IntSet
     let keyArray: [String]
     let hintType: HintType
+    
     var description: String {
         get {
             let sortedISet = Array(iSet).sort()

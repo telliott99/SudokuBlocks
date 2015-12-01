@@ -118,7 +118,7 @@ extension Puzzle {
 }
 
 extension Puzzle {
-    func validate() -> Bool {
+    func validate() -> [String]? {
         for group in zones + rows + cols {
             // get the data for this group as [IntSet]
             var data = group.map() { currentPuzzle.dataD[$0] }
@@ -129,10 +129,10 @@ extension Puzzle {
             
             if Set(arr).count != arr.count {
                 Swift.print("Found a problem with group: \(group)")
-                return false
+                return group
             }
         }
-        return true
+        return nil
     }
 }
 

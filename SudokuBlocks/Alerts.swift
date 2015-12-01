@@ -31,7 +31,9 @@ func showHelpAsAlert() {
     s += "Click to delete a single value\n"
     s += "Command-click to select one value\n"
     s += "Command-z to go back one\n"
-    s += "(a single move or a constraint cycle)\n"
+    s += "(a single move or a constraint cycle)\n\n"
+    s += "Note: applying constraints may uncover\n"
+    s += "a problem with a previous move"
     runAlert(s, style: .InformationalAlertStyle)
 }
 

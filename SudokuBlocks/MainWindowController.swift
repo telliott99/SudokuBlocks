@@ -165,8 +165,9 @@ class MainWindowController: NSWindowController {
     }
     
     @IBAction func checkPuzzle(sender: AnyObject) {
-        if !currentPuzzle.validate() {
-            runAlert("Found a problem")
+        if let group = currentPuzzle.validate() {
+            let s = group.joinWithSeparator(" ")
+            runAlert("Found a problem: \n\(s)")
         }
         else {
             runAlert("OK: no problems found", style: .InformationalAlertStyle)

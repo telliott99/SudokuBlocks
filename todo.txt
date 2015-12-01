@@ -1,3 +1,6 @@
+propagate constraints can generate invalid state
+
+
 shows hints for completed puzzle!
 
 must check for legality of move to single value
