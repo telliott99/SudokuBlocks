@@ -1,8 +1,5 @@
 import Foundation
 
-
-let validChars = Set("0123456789.".characters)
-
 var currentPuzzle = Puzzle(
     title: String(),
     text: String(),
@@ -22,9 +19,9 @@ struct Puzzle {
 }
 
 /*
-changed text representation on screen to
+text representation on screen
 OK since space is not a valid character
-(no spaces or extra lines when writing to disk)
+(leave out spaces or extra lines when writing to disk)
 
 874 162 395
 125 379 864
@@ -79,6 +76,7 @@ extension Puzzle {
         return ret.joinWithSeparator("")
     }
     
+    // no extra spaces for disk storage
     func fileRepresentation() -> String {
         let s = self.dataAsOneLineString()
         var ret = [String]()
@@ -91,26 +89,32 @@ extension Puzzle {
         return ret.joinWithSeparator("")
     }
     
-    func getIntSets() -> [IntSet] {
+    func getAllIntSets() -> [IntSet] {
         var result = [IntSet]()
-        for key in orderedKeyArray() {
+        for key in orderedKeys {
             let value = self.dataD[key]!
             result.append(value)
         }
         return result
     }
-}
-
-// need this to work not just for the whole puzzle
-// but also cols, rows and boxes
-
-func getIntSetsForKeyArray(group: [String]) -> [IntSet] {
-    var result = [IntSet]()
-    for key in group {
-        let value = currentPuzzle.dataD[key]!
-        result.append(value)
+    
+    func getIntSetsForKeyArray(group: [String]) -> [IntSet] {
+        var result = [IntSet]()
+        for key in group {
+            let value = currentPuzzle.dataD[key]!
+            result.append(value)
+        }
+        return result
     }
-    return result
+
+    func keyForValue(group: [String], value: IntSet, dataD: DataSet) -> String? {
+        for key in group {
+            if dataD[key]! == value {
+                return key
+            }
+        }
+        return nil
+    }
 }
 
 

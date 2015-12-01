@@ -31,7 +31,7 @@ func < (lhs: Hint, rhs: Hint) -> Bool {
             return false
         }
     }
-    let oka = orderedKeyArray()
+    let oka = orderedKeys
     return oka.indexOf(lhs.key) < oka.indexOf(rhs.key)
 }
 
@@ -52,7 +52,7 @@ struct Hint: CustomStringConvertible, Hashable, Equatable {
     
     var hashValue: Int {
         get {
-            let ka = orderedKeyArray()
+            let ka = orderedKeys
             var n = ka.indexOf(key)! * 10
             switch hintType {
             case .one:  n = 1

@@ -44,17 +44,13 @@ class MainWindowController: NSWindowController {
         let a: [Difficulty] = [.easy, .medium, .hard, .evil]
         let level = a[popUp.indexOfSelectedItem]
         
-        let result = getDatabasePuzzle(level)
+        let result = getRandomDatabasePuzzle(level)
         if result == nil { return }
+        
         let (key, s) = result!
-        
-        let dataD = convertStringToDataSet(s)
-        if dataD == nil { return }
-        
-        currentPuzzle = Puzzle(
-            title: key, text: s,
-            start: dataD!,
-            dataD: dataD! )
+        let p = constructPuzzleFromKeyAndString(key, string:s)
+        if p == nil { return }
+        currentPuzzle = p!
         
         resetLabelTextField()
         if checkbox.state == NSOnState {
@@ -134,5 +130,37 @@ class MainWindowController: NSWindowController {
     
     func resetLabelTextField() {
         mainWindowLabelTextField.stringValue  = currentPuzzle.title
+    }
+    
+    @IBAction func labelTextFieldEdited(sender: AnyObject) {
+        let s = mainWindowLabelTextField.stringValue
+        let result = getDatabasePuzzleForRequestedKey(s)
+        if nil != result {
+            
+            let (key, s) = result!
+            let p = constructPuzzleFromKeyAndString(key, string:s)
+            if p == nil { return }
+            currentPuzzle = p!
+            
+            resetLabelTextField()
+            
+            let c = String(key.characters.first!)
+            if let i = ["z","m","h","e"].indexOf(c) {
+                popUp.selectItemAtIndex(Int(i))
+            } else {
+                popUp.selectItemAtIndex(0)
+            }
+            
+            if checkbox.state == NSOnState {
+                applyConstraintsForFilledSquaresOnce()
+            }
+            hideHints()
+        } else {
+            runAlert("No puzzle with that title!")
+            resetLabelTextField()
+        }
+        // this doesn't work at present
+        unSelectTextField(mainWindowLabelTextField, controller: self)
+        // focusOnPuzzleView()
     }
 }

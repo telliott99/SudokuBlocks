@@ -26,7 +26,7 @@ func constructZeroedDataDict() -> DataSet {
     // the cells are [1,2,3,4,5,6,7,8,9] == 1..<10
     
     var D = DataSet()
-    for key in orderedKeyArray() {
+    for key in orderedKeys {
         D[key] = Set(1..<10)
     }
     return D
@@ -40,7 +40,7 @@ func convertStringToDataSet(s: String) -> DataSet? {
 
     // want to enumerate but we need an "Index", it's awkward
     
-    for (i,key) in orderedKeyArray().enumerate() {
+    for (i,key) in orderedKeys.enumerate() {
         // data from the input string
         let v = sc[index.advancedBy(i)]
         

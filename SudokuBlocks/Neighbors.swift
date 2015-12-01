@@ -3,7 +3,12 @@ import Foundation
 // finding the "neighbors" for a key
 // same row, col or 3 x 3 box
 
-let boxes = [
+
+// update:  what I previously called a box is called a "zone" here:
+// https://en.wikipedia.org/wiki/Sudoku_solving_algorithms
+
+
+let zones = [
     ["A1","A2","A3","B1","B2","B3","C1","C2", "C3"],
     ["A4","A5","A6","B4","B5","B6","C4","C5", "C6"],
     ["A7","A8","A9","B7","B8","B9","C7","C8", "C9"],
@@ -25,9 +30,9 @@ func arrayForKey(key: String, arrayOfArrays: [[String]]) -> [String]? {
     return nil
 }
 
-func sameBoxForKey(key: String) -> [String] {
-    let box = arrayForKey(key, arrayOfArrays: boxes)
-    return box!
+func sameZoneForKey(key: String) -> [String] {
+    let zone = arrayForKey(key, arrayOfArrays: zones)
+    return zone!
 }
 
 /*
@@ -71,7 +76,7 @@ func sameColForKey(key: String) -> [String] {
 func neighborsForKey(key: String) -> [String] {
     var a = sameRowForKey(key)
     a.appendContentsOf(sameColForKey(key))
-    a.appendContentsOf(sameBoxForKey(key))
+    a.appendContentsOf(sameZoneForKey(key))
     
     // no duplicates
     a = Array(Set(a)).sort()

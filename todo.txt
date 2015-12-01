@@ -1,3 +1,6 @@
 shows hints for completed puzzle!
 
 must check for legality of move to single value
+
+resources:
+http://www.sudokuwiki.org/sudoku.htm

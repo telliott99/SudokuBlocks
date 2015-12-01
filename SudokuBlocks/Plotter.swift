@@ -1,7 +1,5 @@
 import Cocoa
 
-let kL = orderedKeyArray()  // ["A1" .. "I9"]
-
 let rectD = constructRectDict()
 let tiny_rectL = constructTinyRects()
 let divL = getBlueDividerRects()
@@ -16,7 +14,7 @@ func drawDividers() {
 
 func retrieveAndPlotData() {
     let dataD = currentPuzzle.dataD
-    for key in kL {
+    for key in orderedKeys {
         // any Dictionary access returns an Optional
         let r = rectD[key]!
         let data = dataD[key]!

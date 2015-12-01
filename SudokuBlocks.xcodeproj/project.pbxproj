@@ -10,7 +10,6 @@
 		750129A31BF9D9F6006D8586 /* Breakpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750129A21BF9D9F6006D8586 /* Breakpoints.swift */; };
 		7507A9141BF535F8009D3EEF /* Plotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507A9131BF535F8009D3EEF /* Plotter.swift */; };
 		751205521BF4DA1E00E6BB45 /* PlotUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */; };
-		7512BFBB1C0C86FF004C2111 /* KeyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7512BFBA1C0C86FF004C2111 /* KeyHelper.swift */; };
 		7512BFBD1C0C8C23004C2111 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7512BFBC1C0C8C23004C2111 /* Extensions.swift */; };
 		75179A651BF7EEA800F461D6 /* Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A641BF7EEA800F461D6 /* Undo.swift */; };
 		75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A661BF82C5C00F461D6 /* Mutators.swift */; };
@@ -35,8 +34,9 @@
 		75DEFE581C060629003ECC01 /* HintDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DEFE571C060629003ECC01 /* HintDefs.swift */; };
 		75DEFE5A1C06067D003ECC01 /* HintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DEFE591C06067D003ECC01 /* HintHelper.swift */; };
 		75DFCE9C1BF6683400210640 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DFCE9B1BF6683400210640 /* Files.swift */; };
-		75E6A6051BF66DA10038D3AC /* PuzzleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6A6041BF66DA10038D3AC /* PuzzleHelper.swift */; };
+		75E6A6051BF66DA10038D3AC /* StringToPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6A6041BF66DA10038D3AC /* StringToPuzzle.swift */; };
 		75E6A6071BF66FB20038D3AC /* ScreenUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6A6061BF66FB20038D3AC /* ScreenUtilities.swift */; };
+		75ED05191C0D1E6D004C0116 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED05181C0D1E6D004C0116 /* Keys.swift */; };
 		75F9648F1C05222900130A73 /* EnumTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F9648E1C05222900130A73 /* EnumTypes.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,6 @@
 		750129A21BF9D9F6006D8586 /* Breakpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breakpoints.swift; sourceTree = "<group>"; };
 		7507A9131BF535F8009D3EEF /* Plotter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plotter.swift; sourceTree = "<group>"; };
 		751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotUtilities.swift; sourceTree = "<group>"; };
-		7512BFBA1C0C86FF004C2111 /* KeyHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyHelper.swift; sourceTree = "<group>"; };
 		7512BFBC1C0C8C23004C2111 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Extensions.swift; sourceTree = "<group>"; };
 		75179A641BF7EEA800F461D6 /* Undo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Undo.swift; sourceTree = "<group>"; };
 		75179A661BF82C5C00F461D6 /* Mutators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutators.swift; sourceTree = "<group>"; };
@@ -92,8 +91,9 @@
 		75DEFE571C060629003ECC01 /* HintDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintDefs.swift; sourceTree = "<group>"; };
 		75DEFE591C06067D003ECC01 /* HintHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintHelper.swift; sourceTree = "<group>"; };
 		75DFCE9B1BF6683400210640 /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
-		75E6A6041BF66DA10038D3AC /* PuzzleHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleHelper.swift; sourceTree = "<group>"; };
+		75E6A6041BF66DA10038D3AC /* StringToPuzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToPuzzle.swift; sourceTree = "<group>"; };
 		75E6A6061BF66FB20038D3AC /* ScreenUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenUtilities.swift; sourceTree = "<group>"; };
+		75ED05181C0D1E6D004C0116 /* Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		75F9648E1C05222900130A73 /* EnumTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,7 +157,7 @@
 				75DEFE571C060629003ECC01 /* HintDefs.swift */,
 				75DEFE591C06067D003ECC01 /* HintHelper.swift */,
 				75B178501C01F34700A79A19 /* HintDetector.swift */,
-				7512BFBA1C0C86FF004C2111 /* KeyHelper.swift */,
+				75ED05181C0D1E6D004C0116 /* Keys.swift */,
 				75C4653B1BF394AA00436C0F /* MainWindowController.swift */,
 				75C4653F1BF3950100436C0F /* MyView.swift */,
 				75179A661BF82C5C00F461D6 /* Mutators.swift */,
@@ -165,8 +165,8 @@
 				7507A9131BF535F8009D3EEF /* Plotter.swift */,
 				751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */,
 				758EB63B1C09F24300F8660F /* PuzzleDef.swift */,
-				75E6A6041BF66DA10038D3AC /* PuzzleHelper.swift */,
 				75E6A6061BF66FB20038D3AC /* ScreenUtilities.swift */,
+				75E6A6041BF66DA10038D3AC /* StringToPuzzle.swift */,
 				756A588F1C08FBFA00545250 /* TextWindowController.swift */,
 				75179A641BF7EEA800F461D6 /* Undo.swift */,
 				75C465141BF3945200436C0F /* Assets.xcassets */,
@@ -333,14 +333,14 @@
 				75DEFE581C060629003ECC01 /* HintDefs.swift in Sources */,
 				75E6A6071BF66FB20038D3AC /* ScreenUtilities.swift in Sources */,
 				7507A9141BF535F8009D3EEF /* Plotter.swift in Sources */,
-				75E6A6051BF66DA10038D3AC /* PuzzleHelper.swift in Sources */,
+				75E6A6051BF66DA10038D3AC /* StringToPuzzle.swift in Sources */,
 				75179A651BF7EEA800F461D6 /* Undo.swift in Sources */,
 				75B178511C01F34700A79A19 /* HintDetector.swift in Sources */,
 				756A58911C08FBFA00545250 /* TextWindowController.swift in Sources */,
 				757FED281C06199C0052484D /* Alerts.swift in Sources */,
 				75C587E71BF5750B00AEDDAC /* Colors.swift in Sources */,
 				75C465401BF3950100436C0F /* MyView.swift in Sources */,
-				7512BFBB1C0C86FF004C2111 /* KeyHelper.swift in Sources */,
+				75ED05191C0D1E6D004C0116 /* Keys.swift in Sources */,
 				7512BFBD1C0C8C23004C2111 /* Extensions.swift in Sources */,
 				75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */,
 				750129A31BF9D9F6006D8586 /* Breakpoints.swift in Sources */,

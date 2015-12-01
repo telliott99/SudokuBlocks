@@ -7,30 +7,58 @@ current choices are easy, medium, hard, evil
 not sure where the ratings came from now, some are iffy
 */
 
-func getDatabasePuzzle(level: Difficulty) -> (String, String)? {
+/*
+Note:  original labels were "z": easy .. "e": evil
+I changed these by hand to  "e": easy .. "v": evil
+*/
+
+func loadDatabaseDictionary() -> [String:String] {
     let path = NSBundle.mainBundle().pathForResource("db", ofType: "plist")
-    
+
     // pretty confident, aren't we
-    let D = NSDictionary(contentsOfFile: path!)!
-    var kL = [String]()
-    for key in D.allKeys {
-        kL.append(String(key))
+    let input = NSDictionary(contentsOfFile: path!)!
+    
+    // input is [AnyObject:AnyObject]
+    var D = [String:String]()
+    for key in input.allKeys {
+        let k = key as! String
+        let v = input.objectForKey(k) as! String
+        D[k] = v
     }
+    // Swift.print("\(D.dynamicType)")
+    return D
+}
+
+let databaseD = loadDatabaseDictionary()
+
+func getRandomDatabasePuzzle(level: Difficulty) -> (String, String)? {
+    
+    let D = databaseD
+    
+    // needed because D.keys is a special kind of Collection
+    var kL = Array(D.keys)
     
     // filter kL based on Difficulty
     switch level {
     case .easy:
-        kL = kL.filter( { $0.characters.first == "z" } )
+        kL = kL.filter() { $0.characters.first! == "e" }
     case .medium:
-        kL = kL.filter( { $0.characters.first == "m" } )
+        kL = kL.filter() { $0.characters.first! == "m" }
     case .hard:
-        kL = kL.filter( { $0.characters.first == "h" } )
+        kL = kL.filter() { $0.characters.first! == "h" }
     case .evil:
-        kL = kL.filter( { $0.characters.first == "e" } )
+        kL = kL.filter() { $0.characters.first! == "v" }
     }
     
     let i = Int(arc4random_uniform(UInt32(kL.count)))
-    let key = String(kL[i])
-    let s = "\(D[key]!)"
-    return (key,s)
+    let k = kL[i]
+    return (k, D[k]!)
+}
+
+func getDatabasePuzzleForRequestedKey(requestedKey: String) -> (String,String)? {
+    if databaseD.keys.contains(requestedKey) {
+        let k = requestedKey
+        return (k,databaseD[k]!)
+    }
+    return nil
 }

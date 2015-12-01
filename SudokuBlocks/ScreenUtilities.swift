@@ -15,8 +15,9 @@ func refreshScreen() {
     }
 }
 
-func unSelectTextField(tf: NSTextField) {
-    if let window = textWindowController.window {
+func unSelectTextField(tf: NSTextField, controller: NSWindowController) {
+    Swift.print("unSelect \(tf) \(controller)")
+    if let window = controller.window {
         let textEditor = window.fieldEditor(true, forObject: tf)!
         let range = NSRange(0..<0)
         textEditor.selectedRange = range

@@ -8,7 +8,7 @@ typealias DataSet = [String:IntSet]
 var a = [IntSet]()
 
 func findRepeatedTwos(neighbors: [String]) -> [KeyArray]? {
-    let arr = getIntSetsForKeyArray(neighbors)
+    let arr = currentPuzzle.getIntSetsForKeyArray(neighbors)
     
     // filter for 2 elements
     let twos = arr.filter( { $0.count == 2 } )
@@ -62,7 +62,7 @@ func getTypeOneHints() -> [Hint]? {
     var hints = [Hint]()
     let dataD = currentPuzzle.dataD
     
-    for group in boxes + rows + cols {
+    for group in zones + rows + cols {
         if let results = findRepeatedTwos(group) {
             
             for keyArray in results {
@@ -122,7 +122,7 @@ func getTypeTwoHints() -> [Hint]? {
     var hints = [Hint]()
     let dataD = currentPuzzle.dataD
     
-    for group in boxes + rows + cols {
+    for group in zones + rows + cols {
         // gather all the values
         var arr = [Int]()
         for key in group {
@@ -170,7 +170,7 @@ func getTypeThreeHints() -> [Hint]? {
     var hints = [Hint]()
     let dataD = currentPuzzle.dataD
     
-    for group in boxes + rows + cols {
+    for group in zones + rows + cols {
         
         let values : [IntSet] = group.map( { dataD[$0]! } )
         let setsWithTwo = values.filter( { $0.count == 2 } )
@@ -209,13 +209,13 @@ func getTypeThreeHints() -> [Hint]? {
                 if !set.intersect(set2).isEmpty {
                     
                     // find the keys for the sets in the cycle list
-                    let k1 = getKeyForValue(group,
+                    let k1 = currentPuzzle.keyForValue(group,
                         value: cycleList[0],
                         dataD: dataD)!
-                    let k2 = getKeyForValue(group,
+                    let k2 = currentPuzzle.keyForValue(group,
                         value: cycleList[1],
                         dataD: dataD)!
-                    let k3 = getKeyForValue(group,
+                    let k3 = currentPuzzle.keyForValue(group,
                         value: cycleList[2],
                         dataD: dataD)!
                     

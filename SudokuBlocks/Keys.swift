@@ -6,7 +6,12 @@ let letters = "ABCDEFGHI"
 let digits =  "123456789"
 // let digitArray = Array(arrayLiteral: digits)
 
-func orderedKeyArray() -> [String] {
+// actually, .sort() gives the 
+// correct sorted order A1 A2..B1 B2 ..
+
+let orderedKeys = getOrderedKeys()
+
+func getOrderedKeys() -> [String] {
     var kL = [String]()
     for l in letters.characters {
         for d in digits.characters {
@@ -14,16 +19,4 @@ func orderedKeyArray() -> [String] {
         }
     }
     return kL
-}
-
-// given a group of keys and a value
-// find the key with that value
-
-func getKeyForValue(group: [String], value: IntSet, dataD: DataSet) -> String? {
-    for key in group {
-        if dataD[key]! == value {
-            return key
-        }
-    }
-    return nil
 }

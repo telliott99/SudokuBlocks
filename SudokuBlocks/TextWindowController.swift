@@ -20,7 +20,7 @@ class TextWindowController: NSWindowController {
         
         let result = loadPuzzleDataFromString("", s: s)
         if result {
-            labelTextField.stringValue = "custom puzzle"
+            labelTextField.stringValue = "?"
             
             if let w = mainWindowController.window {
                 mainWindowController.requestClean(self)
@@ -41,7 +41,7 @@ class TextWindowController: NSWindowController {
         
         textField.stringValue = String(currentPuzzle)
         labelTextField.stringValue = currentPuzzle.title
-        unSelectTextField(textField)
+        unSelectTextField(textField, controller: self)
         
         mainWindowController.resetLabelTextField()
 

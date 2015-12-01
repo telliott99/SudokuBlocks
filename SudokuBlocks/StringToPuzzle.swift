@@ -8,8 +8,10 @@ func validatedPuzzleString(s: String) -> String? {
     // doesn't work properly for \n
     
     var a = [Character]()
+    
+    let whitespace = " \n".characters
     for c in s.characters {
-        if " \n".characters.contains(c) {
+        if whitespace.contains(c) {
             continue
         }
         a.append(c)
@@ -19,7 +21,8 @@ func validatedPuzzleString(s: String) -> String? {
         return nil
     }
     
-    if !Set(a).isSubsetOf(validChars) {
+    let validPuzzleChars = ".123456789".characters
+    if !Set(a).isSubsetOf(validPuzzleChars) {
         return nil
     }
     return String(a)
@@ -47,6 +50,16 @@ func loadPuzzleDataFromString(title: String, s: String) -> Bool {
     
     refreshScreen()
     return true
+}
+
+func constructPuzzleFromKeyAndString(key: String, string: String) -> Puzzle? {
+    let dataD = convertStringToDataSet(string)
+    if dataD == nil { return nil }
+    
+    return Puzzle(
+        title: key, text: string,
+        start: dataD!,
+        dataD: dataD! )
 }
 
 
