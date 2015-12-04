@@ -50,11 +50,9 @@ extension String {
     func stripOccurrencesOfCharactersInList(cL: CharacterView) -> String {
         /*
         get the CharacterView, like an [Character]
-        split to chunks on newlines
-        split takes a closure
+        split to chunks on newlines, takes a closure
 
-        the results are not Strings 
-        which joinWithSeparator requires,
+        the results are not Strings which joinWithSeparator requires,
         so do the conversion for each one with map
         */
         

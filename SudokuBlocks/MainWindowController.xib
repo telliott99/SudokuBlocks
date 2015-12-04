@@ -32,7 +32,7 @@
                         <animations/>
                     </customView>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJF-ph-VRJ">
-                        <rect key="frame" x="758" y="619" width="103" height="32"/>
+                        <rect key="frame" x="760" y="619" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Load" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WZb-68-pO4">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -43,7 +43,7 @@
                         </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oRa-5X-04e">
-                        <rect key="frame" x="762" y="589" width="95" height="26"/>
+                        <rect key="frame" x="764" y="589" width="103" height="26"/>
                         <animations/>
                         <popUpButtonCell key="cell" type="push" title="med" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="8Fa-bF-JRI" id="MbC-EM-elR">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -66,7 +66,7 @@
                         </connections>
                     </popUpButton>
                     <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="bNn-dt-qHS">
-                        <rect key="frame" x="663" y="473" width="184" height="5"/>
+                        <rect key="frame" x="664" y="473" width="184" height="5"/>
                         <animations/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -82,7 +82,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCX-Cd-epS">
-                        <rect key="frame" x="757" y="433" width="103" height="32"/>
+                        <rect key="frame" x="760" y="433" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="One Cycle" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gNw-ee-isq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -93,7 +93,7 @@
                         </buttonCell>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fQS-FM-XtI">
-                        <rect key="frame" x="656" y="440" width="74" height="17"/>
+                        <rect key="frame" x="660" y="440" width="74" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Constraints" id="mQV-iX-lt2">
                             <font key="font" metaFont="system"/>
@@ -102,7 +102,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oT3-pY-5S2">
-                        <rect key="frame" x="661" y="337" width="36" height="17"/>
+                        <rect key="frame" x="660" y="337" width="36" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Hints" id="S4Z-IG-Y6N">
                             <font key="font" metaFont="system"/>
@@ -111,7 +111,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPk-9c-MS3">
-                        <rect key="frame" x="757" y="70" width="99" height="32"/>
+                        <rect key="frame" x="760" y="70" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Reset" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jga-A9-xXq">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -122,7 +122,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voj-YH-UzM">
-                        <rect key="frame" x="758" y="481" width="102" height="32"/>
+                        <rect key="frame" x="760" y="481" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Help" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="noP-zu-bHp">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -133,7 +133,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-sl-p8v">
-                        <rect key="frame" x="757" y="192" width="99" height="32"/>
+                        <rect key="frame" x="760" y="192" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Set" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c8g-Uk-br7">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -144,7 +144,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0w3-kj-59w">
-                        <rect key="frame" x="661" y="201" width="76" height="17"/>
+                        <rect key="frame" x="660" y="201" width="76" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Breakpoints" id="D61-3n-kOt">
                             <font key="font" metaFont="system"/>
@@ -153,7 +153,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNn-MB-tas">
-                        <rect key="frame" x="757" y="159" width="99" height="32"/>
+                        <rect key="frame" x="760" y="159" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Restore" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ssg-bp-Rdz">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -171,7 +171,7 @@
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O1D-xY-7rx">
-                        <rect key="frame" x="756" y="312" width="37" height="17"/>
+                        <rect key="frame" x="760" y="312" width="37" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0" id="16o-Cv-jGv">
                             <font key="font" metaFont="system" size="15"/>
@@ -189,7 +189,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x0h-dk-9hy">
-                        <rect key="frame" x="825" y="310" width="37" height="18"/>
+                        <rect key="frame" x="828" y="310" width="37" height="18"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0" id="h6p-ay-6Bu">
                             <font key="font" metaFont="system" size="15"/>
@@ -198,7 +198,7 @@
                         </textFieldCell>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ha-4J-0Gc">
-                        <rect key="frame" x="759" y="330" width="100" height="32"/>
+                        <rect key="frame" x="760" y="330" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Show" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="psA-Cs-AOJ">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -209,7 +209,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tle-S9-OHF">
-                        <rect key="frame" x="757" y="271" width="101" height="32"/>
+                        <rect key="frame" x="760" y="271" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Hide" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Lik-d5-aIK">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -219,19 +219,8 @@
                             <action selector="hideHints:" target="-2" id="hPR-Ee-qSx"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XyA-IK-BT2">
-                        <rect key="frame" x="758" y="515" width="102" height="32"/>
-                        <animations/>
-                        <buttonCell key="cell" type="push" title="Show" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xiO-0t-WSt">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                            <connections>
-                                <action selector="showTextWindow:" target="-2" id="GrI-Hh-A7g"/>
-                            </connections>
-                        </buttonCell>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zFX-jZ-xdY">
-                        <rect key="frame" x="656" y="628" width="98" height="17"/>
+                        <rect key="frame" x="660" y="628" width="98" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Random Puzzle" id="O1I-tt-uXO">
                             <font key="font" metaFont="system"/>
@@ -240,7 +229,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4JL-kk-gA3">
-                        <rect key="frame" x="656" y="594" width="36" height="17"/>
+                        <rect key="frame" x="660" y="594" width="36" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Leval" id="oEJ-NO-YP3">
                             <font key="font" metaFont="system"/>
@@ -249,7 +238,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y67-8n-h2N">
-                        <rect key="frame" x="656" y="559" width="94" height="17"/>
+                        <rect key="frame" x="660" y="559" width="94" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Current Puzzle" id="Guy-fQ-C7W">
                             <font key="font" metaFont="system"/>
@@ -258,7 +247,7 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="umt-V5-EMv">
-                        <rect key="frame" x="656" y="524" width="82" height="17"/>
+                        <rect key="frame" x="660" y="524" width="82" height="17"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Text Window" id="fP4-PZ-rG3">
                             <font key="font" metaFont="system"/>
@@ -267,7 +256,7 @@
                         </textFieldCell>
                     </textField>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUP-8Q-loD">
-                        <rect key="frame" x="772" y="383" width="73" height="18"/>
+                        <rect key="frame" x="776" y="383" width="73" height="18"/>
                         <animations/>
                         <buttonCell key="cell" type="check" title="On Load" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="aCZ-ua-afA">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -275,14 +264,14 @@
                         </buttonCell>
                     </button>
                     <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="O4n-OD-Rdh">
-                        <rect key="frame" x="669" y="372" width="184" height="5"/>
+                        <rect key="frame" x="670" y="372" width="184" height="5"/>
                         <animations/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ca-KH-pDZ">
-                        <rect key="frame" x="756" y="37" width="101" height="32"/>
+                        <rect key="frame" x="760" y="37" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Undo" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TEY-P8-PIY">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -293,7 +282,7 @@
                         </connections>
                     </button>
                     <box verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="Rx3-eX-jgS">
-                        <rect key="frame" x="667" y="227" width="184" height="5"/>
+                        <rect key="frame" x="668" y="227" width="184" height="5"/>
                         <animations/>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -307,7 +296,7 @@
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tyS-KU-vDo">
-                        <rect key="frame" x="757" y="238" width="101" height="32"/>
+                        <rect key="frame" x="760" y="238" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Hint Help" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qoE-GZ-r8R">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -318,7 +307,7 @@
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7OU-Ul-A7n">
-                        <rect key="frame" x="764" y="556" width="39" height="22"/>
+                        <rect key="frame" x="793" y="556" width="39" height="22"/>
                         <animations/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="U4c-8w-qmL">
                             <font key="font" metaFont="system"/>
@@ -330,7 +319,7 @@
                         </connections>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jat-e1-Q17">
-                        <rect key="frame" x="746" y="119" width="115" height="32"/>
+                        <rect key="frame" x="760" y="119" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Check Logic" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gjs-d0-Cuo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -341,7 +330,7 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbo-xH-mTS">
-                        <rect key="frame" x="757" y="405" width="103" height="32"/>
+                        <rect key="frame" x="760" y="405" width="110" height="32"/>
                         <animations/>
                         <buttonCell key="cell" type="push" title="All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t5d-pb-Zrj">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -350,6 +339,17 @@
                         <connections>
                             <action selector="requestExhaustiveClean:" target="-2" id="W37-vy-nPW"/>
                         </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XyA-IK-BT2">
+                        <rect key="frame" x="760" y="515" width="110" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Show" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xiO-0t-WSt">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <connections>
+                                <action selector="showTextWindow:" target="-2" id="GrI-Hh-A7g"/>
+                            </connections>
+                        </buttonCell>
                     </button>
                 </subviews>
                 <animations/>
