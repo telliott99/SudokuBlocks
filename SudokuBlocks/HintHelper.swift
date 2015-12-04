@@ -16,6 +16,7 @@ func calculateHintsForThisPosition() -> Bool {
     }
     if hintList.count == 0 {
         runAlert("no hints right now")
+        setHintActive(false)
         return false
     }
     
