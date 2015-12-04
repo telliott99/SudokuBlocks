@@ -10,7 +10,6 @@
 		750129A31BF9D9F6006D8586 /* Breakpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750129A21BF9D9F6006D8586 /* Breakpoints.swift */; };
 		7507A9141BF535F8009D3EEF /* Plotter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507A9131BF535F8009D3EEF /* Plotter.swift */; };
 		751205521BF4DA1E00E6BB45 /* PlotUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */; };
-		7512BFBD1C0C8C23004C2111 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7512BFBC1C0C8C23004C2111 /* Extensions.swift */; };
 		75179A651BF7EEA800F461D6 /* Undo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A641BF7EEA800F461D6 /* Undo.swift */; };
 		75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179A661BF82C5C00F461D6 /* Mutators.swift */; };
 		756A58911C08FBFA00545250 /* TextWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A588F1C08FBFA00545250 /* TextWindowController.swift */; };
@@ -31,6 +30,7 @@
 		75C4653E1BF394AA00436C0F /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75C4653C1BF394AA00436C0F /* MainWindowController.xib */; };
 		75C465401BF3950100436C0F /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C4653F1BF3950100436C0F /* MyView.swift */; };
 		75C587E71BF5750B00AEDDAC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C587E61BF5750B00AEDDAC /* Colors.swift */; };
+		75DC14531C109D7D00C1E1AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DC14521C109D7D00C1E1AF /* Extensions.swift */; };
 		75DEFE581C060629003ECC01 /* HintDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DEFE571C060629003ECC01 /* HintDefs.swift */; };
 		75DEFE5A1C06067D003ECC01 /* HintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DEFE591C06067D003ECC01 /* HintHelper.swift */; };
 		75DFCE9C1BF6683400210640 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DFCE9B1BF6683400210640 /* Files.swift */; };
@@ -61,7 +61,6 @@
 		750129A21BF9D9F6006D8586 /* Breakpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Breakpoints.swift; sourceTree = "<group>"; };
 		7507A9131BF535F8009D3EEF /* Plotter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plotter.swift; sourceTree = "<group>"; };
 		751205511BF4DA1E00E6BB45 /* PlotUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotUtilities.swift; sourceTree = "<group>"; };
-		7512BFBC1C0C8C23004C2111 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Extensions.swift; sourceTree = "<group>"; };
 		75179A641BF7EEA800F461D6 /* Undo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Undo.swift; sourceTree = "<group>"; };
 		75179A661BF82C5C00F461D6 /* Mutators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutators.swift; sourceTree = "<group>"; };
 		756A588F1C08FBFA00545250 /* TextWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextWindowController.swift; sourceTree = "<group>"; };
@@ -88,6 +87,7 @@
 		75C4653C1BF394AA00436C0F /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		75C4653F1BF3950100436C0F /* MyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		75C587E61BF5750B00AEDDAC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		75DC14521C109D7D00C1E1AF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		75DEFE571C060629003ECC01 /* HintDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintDefs.swift; sourceTree = "<group>"; };
 		75DEFE591C06067D003ECC01 /* HintHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintHelper.swift; sourceTree = "<group>"; };
 		75DFCE9B1BF6683400210640 /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				7573691A1BF53B640031DDCD /* Data.swift */,
 				758674411C0B203200137A8F /* DatabaseHelper.swift */,
 				75F9648E1C05222900130A73 /* EnumTypes.swift */,
-				7512BFBC1C0C8C23004C2111 /* Extensions.swift */,
+				75DC14521C109D7D00C1E1AF /* Extensions.swift */,
 				75DFCE9B1BF6683400210640 /* Files.swift */,
 				75B178521C01F48B00A79A19 /* Groups.swift */,
 				75DEFE571C060629003ECC01 /* HintDefs.swift */,
@@ -341,7 +341,6 @@
 				75C587E71BF5750B00AEDDAC /* Colors.swift in Sources */,
 				75C465401BF3950100436C0F /* MyView.swift in Sources */,
 				75ED05191C0D1E6D004C0116 /* Keys.swift in Sources */,
-				7512BFBD1C0C8C23004C2111 /* Extensions.swift in Sources */,
 				75179A671BF82C5C00F461D6 /* Mutators.swift in Sources */,
 				750129A31BF9D9F6006D8586 /* Breakpoints.swift in Sources */,
 				758EB63C1C09F24300F8660F /* PuzzleDef.swift in Sources */,
@@ -350,6 +349,7 @@
 				75F9648F1C05222900130A73 /* EnumTypes.swift in Sources */,
 				75DFCE9C1BF6683400210640 /* Files.swift in Sources */,
 				75B178531C01F48B00A79A19 /* Groups.swift in Sources */,
+				75DC14531C109D7D00C1E1AF /* Extensions.swift in Sources */,
 				75C4653D1BF394AA00436C0F /* MainWindowController.swift in Sources */,
 				7573691B1BF53B640031DDCD /* Data.swift in Sources */,
 				751205521BF4DA1E00E6BB45 /* PlotUtilities.swift in Sources */,
